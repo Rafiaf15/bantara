@@ -1,13 +1,16 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer
       id="main-footer"
       style={{
-        background: "#030810",
-        borderTop: "1px solid rgba(200, 164, 94, 0.1)",
+        background: "var(--section-alt-bg)",
+        borderTop: "1px solid var(--card-border)",
         padding: "60px 24px 30px",
+        transition: "background 0.4s ease, border-color 0.4s ease",
       }}
     >
       <div
@@ -35,12 +38,12 @@ export default function Footer() {
                 marginBottom: 16,
               }}
             >
-             <img
+              <img
                 src="/images/Logo-Only.webp"
                 alt="Bantara Logo"
                 style={{
-                  width: 95,
-                  height: 95,
+                  width: 50,
+                  height: 50,
                   objectFit: "contain",
                   borderRadius: 10,
                 }}
@@ -49,7 +52,7 @@ export default function Footer() {
                 style={{
                   fontWeight: 800,
                   fontSize: 16,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   letterSpacing: "0.08em",
                 }}
               >
@@ -59,7 +62,7 @@ export default function Footer() {
             <p
               style={{
                 fontSize: 14,
-                color: "#64748b",
+                color: "var(--text-secondary)",
                 lineHeight: 1.7,
                 maxWidth: 300,
               }}
@@ -75,7 +78,7 @@ export default function Footer() {
               style={{
                 fontSize: 13,
                 fontWeight: 700,
-                color: "#e2e8f0",
+                color: "var(--text-primary)",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 marginBottom: 20,
@@ -90,28 +93,32 @@ export default function Footer() {
                 gap: 10,
               }}
             >
-              {["About", "Services", "Experience", "Contact"].map(
-                (item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    style={{
-                      fontSize: 14,
-                      color: "#94a3b8",
-                      textDecoration: "none",
-                      transition: "color 0.3s ease",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "#c8a45e")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "#94a3b8")
-                    }
-                  >
-                    {item}
-                  </a>
-                )
-              )}
+              {[
+                { label: "Home", href: "/" },
+                { label: "Tentang Kami", href: "/tentang-kami" },
+                { label: "Services", href: "/services" },
+                { label: "Experience", href: "/experience" },
+                { label: "Contact", href: "/contact" },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  style={{
+                    fontSize: 14,
+                    color: "var(--text-secondary)",
+                    textDecoration: "none",
+                    transition: "color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = "var(--gold-500)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "var(--text-secondary)")
+                  }
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -121,7 +128,7 @@ export default function Footer() {
               style={{
                 fontSize: 13,
                 fontWeight: 700,
-                color: "#e2e8f0",
+                color: "var(--text-primary)",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 marginBottom: 20,
@@ -142,12 +149,24 @@ export default function Footer() {
                 "Pengangkutan Darat",
                 "Pergudangan",
               ].map((item) => (
-                <span
+                <Link
                   key={item}
-                  style={{ fontSize: 14, color: "#64748b" }}
+                  href="/services"
+                  style={{
+                    fontSize: 14,
+                    color: "var(--text-muted)",
+                    textDecoration: "none",
+                    transition: "color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.color = "var(--gold-500)")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.currentTarget.style.color = "var(--text-muted)")
+                  }
                 >
                   {item}
-                </span>
+                </Link>
               ))}
             </div>
           </div>
@@ -158,7 +177,7 @@ export default function Footer() {
               style={{
                 fontSize: 13,
                 fontWeight: 700,
-                color: "#e2e8f0",
+                color: "var(--text-primary)",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 marginBottom: 20,
@@ -177,38 +196,40 @@ export default function Footer() {
                 href="mailto:bimaarungdwipantara@gmail.com"
                 style={{
                   fontSize: 14,
-                  color: "#94a3b8",
+                  color: "var(--text-secondary)",
                   textDecoration: "none",
                   transition: "color 0.3s ease",
                   wordBreak: "break-all",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "#c8a45e")
+                  (e.currentTarget.style.color = "var(--gold-500)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "#94a3b8")
+                  (e.currentTarget.style.color = "var(--text-secondary)")
                 }
               >
                 bimaarungdwipantara@gmail.com
               </a>
               <a
-                href="tel:+6281288122307"
+                href="https://wa.me/6281288122307"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontSize: 14,
-                  color: "#94a3b8",
+                  color: "var(--text-secondary)",
                   textDecoration: "none",
                   transition: "color 0.3s ease",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "#c8a45e")
+                  (e.currentTarget.style.color = "var(--gold-500)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "#94a3b8")
+                  (e.currentTarget.style.color = "var(--text-secondary)")
                 }
               >
                 +62 812-8812-2307
               </a>
-              <span style={{ fontSize: 14, color: "#64748b" }}>
+              <span style={{ fontSize: 14, color: "var(--text-muted)" }}>
                 Jakarta Garden City
               </span>
             </div>
@@ -220,7 +241,7 @@ export default function Footer() {
           style={{
             height: 1,
             background:
-              "linear-gradient(90deg, transparent, rgba(200,164,94,0.15), transparent)",
+              "linear-gradient(90deg, transparent, var(--card-border), transparent)",
             marginBottom: 24,
           }}
         />
@@ -235,11 +256,11 @@ export default function Footer() {
             gap: 12,
           }}
         >
-          <p style={{ fontSize: 13, color: "#475569" }}>
+          <p style={{ fontSize: 13, color: "var(--text-muted)" }}>
             © {new Date().getFullYear()} PT Bima Arung Dwipantara. All rights
             reserved.
           </p>
-          <p style={{ fontSize: 12, color: "#334155" }}>
+          <p style={{ fontSize: 12, color: "var(--text-muted)" }}>
             Shipping Operator & Logistic Solution
           </p>
         </div>

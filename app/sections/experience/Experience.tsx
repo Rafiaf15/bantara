@@ -81,10 +81,11 @@ export default function Experience() {
       id="experience"
       ref={sectionRef}
       style={{
-        padding: "120px 24px",
-        background: "var(--navy-950)",
+        padding: "100px 24px",
+        background: "var(--section-bg)",
         position: "relative",
         overflow: "hidden",
+        transition: "background 0.4s ease",
       }}
     >
       {/* Background glow */}
@@ -120,7 +121,7 @@ export default function Experience() {
             style={{
               fontSize: 13,
               fontWeight: 600,
-              color: "#c8a45e",
+              color: "var(--gold-500)",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
               marginBottom: 16,
@@ -133,7 +134,7 @@ export default function Experience() {
             style={{
               fontSize: "clamp(2rem, 5vw, 3rem)",
               fontWeight: 800,
-              color: "#ffffff",
+              color: "var(--text-primary)",
               marginBottom: 16,
             }}
           >
@@ -143,7 +144,7 @@ export default function Experience() {
             style={{
               width: 60,
               height: 3,
-              background: "linear-gradient(90deg, #c8a45e, #e0c07c)",
+              background: "linear-gradient(90deg, var(--gold-500), var(--gold-300))",
               borderRadius: 2,
               margin: "0 auto 20px",
             }}
@@ -151,7 +152,7 @@ export default function Experience() {
           <p
             style={{
               fontSize: 16,
-              color: "#94a3b8",
+              color: "var(--text-secondary)",
               maxWidth: 600,
               margin: "0 auto",
               lineHeight: 1.7,
@@ -167,7 +168,7 @@ export default function Experience() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 0,
+            gap: 32,
           }}
         >
           {experiences.map((exp, i) => {
@@ -177,15 +178,12 @@ export default function Experience() {
             return (
               <div
                 key={i}
-                className="animate-on-scroll experience-row"
+                className="animate-on-scroll glass-card experience-row"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",
-                  minHeight: 340,
-                  borderBottom:
-                    i < experiences.length - 1
-                      ? "1px solid rgba(255,255,255,0.05)"
-                      : "none",
+                  minHeight: 320,
+                  overflow: "hidden",
                 }}
               >
                 {/* Image side */}
@@ -195,30 +193,23 @@ export default function Experience() {
                     order: isEven ? 0 : 1,
                     position: "relative",
                     overflow: "hidden",
-                    minHeight: 280,
+                    minHeight: 260,
                   }}
                 >
-                  {/* Fallback gradient placeholder (ganti dengan <Image> jika foto tersedia) */}
                   <div
                     className="exp-image-bg"
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: `linear-gradient(135deg, rgba(15,23,42,1) 0%, ${accentColor}18 100%)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
                       transition: "transform 0.6s ease",
                     }}
                   >
-                    {/* Ganti div ini dengan <Image> jika foto sudah tersedia:*/}
                     <Image
                       src={exp.image}
                       alt={exp.imageAlt}
                       fill
                       style={{
                         objectFit: "cover",
-                        opacity: 0.7,
                       }}
                     />
 
@@ -226,20 +217,22 @@ export default function Experience() {
                     <div
                       style={{
                         position: "absolute",
-                        bottom: 24,
-                        left: isEven ? "auto" : 24,
-                        right: isEven ? 24 : "auto",
-                        width: 48,
-                        height: 48,
+                        bottom: 20,
+                        left: isEven ? "auto" : 20,
+                        right: isEven ? 20 : "auto",
+                        width: 44,
+                        height: 44,
                         borderRadius: "50%",
-                        background: `${accentColor}18`,
-                        border: `1.5px solid ${accentColor}40`,
+                        background: "rgba(4, 10, 24, 0.75)",
+                        border: `1.5px solid ${accentColor}`,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        backdropFilter: "blur(8px)",
+                        zIndex: 2,
                       }}
                     >
-                      <span style={{ fontSize: 20 }}>
+                      <span style={{ fontSize: 18 }}>
                         {exp.category === "Laut"
                           ? "⚓"
                           : exp.category === "Darat"
@@ -250,18 +243,6 @@ export default function Experience() {
                       </span>
                     </div>
                   </div>
-
-                  {/* Diagonal overlay untuk transisi ke text side */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background: isEven
-                        ? "linear-gradient(to right, transparent 70%, rgba(15,23,42,0.95) 100%)"
-                        : "linear-gradient(to left, transparent 70%, rgba(15,23,42,0.95) 100%)",
-                      zIndex: 1,
-                    }}
-                  />
                 </div>
 
                 {/* Text side */}
@@ -271,9 +252,7 @@ export default function Experience() {
                     order: isEven ? 1 : 0,
                     display: "flex",
                     alignItems: "center",
-                    padding: "48px 48px 48px",
-                    paddingLeft: isEven ? 48 : 56,
-                    paddingRight: isEven ? 56 : 48,
+                    padding: "40px 40px",
                     position: "relative",
                   }}
                 >
@@ -281,12 +260,11 @@ export default function Experience() {
                   <div
                     style={{
                       position: "absolute",
-                      top: "50%",
-                      transform: "translateY(-50%)",
+                      top: "25%",
+                      bottom: "25%",
                       left: isEven ? 0 : "auto",
                       right: isEven ? "auto" : 0,
                       width: 3,
-                      height: "40%",
                       background: `linear-gradient(180deg, transparent, ${accentColor}, transparent)`,
                       borderRadius: 2,
                     }}
@@ -297,11 +275,11 @@ export default function Experience() {
                     <span
                       style={{
                         fontSize: 12,
-                        fontWeight: 600,
-                        color: "#475569",
+                        fontWeight: 700,
+                        color: "var(--gold-500)",
                         letterSpacing: "0.1em",
                         display: "block",
-                        marginBottom: 12,
+                        marginBottom: 10,
                       }}
                     >
                       {exp.year}
@@ -310,10 +288,10 @@ export default function Experience() {
                     {/* Title */}
                     <h3
                       style={{
-                        fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
+                        fontSize: "clamp(1.15rem, 2.5vw, 1.45rem)",
                         fontWeight: 700,
-                        color: "#f1f5f9",
-                        marginBottom: 16,
+                        color: "var(--text-primary)",
+                        marginBottom: 12,
                         lineHeight: 1.3,
                       }}
                     >
@@ -324,37 +302,26 @@ export default function Experience() {
                     <span
                       style={{
                         display: "inline-block",
-                        fontSize: 12,
+                        fontSize: 11,
                         fontWeight: 600,
                         color: accentColor,
-                        padding: "5px 14px",
-                        background: `${accentColor}15`,
-                        border: `1px solid ${accentColor}30`,
+                        padding: "4px 12px",
+                        background: `${accentColor}18`,
+                        border: `1px solid ${accentColor}40`,
                         borderRadius: 50,
                         letterSpacing: "0.05em",
-                        marginBottom: 20,
+                        marginBottom: 16,
                       }}
                     >
                       {exp.category}
                     </span>
 
-                    {/* Divider */}
-                    <div
-                      style={{
-                        width: 40,
-                        height: 2,
-                        background: `${accentColor}50`,
-                        borderRadius: 1,
-                        marginBottom: 20,
-                      }}
-                    />
-
                     {/* Description */}
                     <p
                       style={{
-                        fontSize: 15,
-                        color: "#94a3b8",
-                        lineHeight: 1.8,
+                        fontSize: 14.5,
+                        color: "var(--text-secondary)",
+                        lineHeight: 1.7,
                       }}
                     >
                       {exp.desc}
@@ -379,11 +346,6 @@ export default function Experience() {
           opacity: 1;
           transform: translateY(0);
         }
-        .experience-row {
-          transition:
-            opacity 0.6s ease,
-            transform 0.6s ease;
-        }
         .experience-row:hover .exp-image-bg {
           transform: scale(1.04);
         }
@@ -399,17 +361,7 @@ export default function Experience() {
           }
           .exp-text-side {
             order: 1 !important;
-            padding: 32px 24px !important;
-          }
-          .exp-text-side > div:first-child {
-            display: none !important;
-          }
-        }
-
-        /* Tablet */
-        @media (max-width: 1024px) and (min-width: 769px) {
-          .exp-text-side {
-            padding: 32px 32px !important;
+            padding: 28px 20px !important;
           }
         }
       `}</style>

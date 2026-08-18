@@ -2,13 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -25,11 +29,14 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "Tentang Kami", href: "/tentang-kami" },
+    { label: "Services", href: "/services" },
+    { label: "Experience", href: "/experience" },
+    { label: "Contact", href: "/contact" },
   ];
+
+  const isLight = theme === "light";
 
   return (
     <header
@@ -40,15 +47,13 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        padding: scrolled ? "12px 0" : "20px 0",
-        background: scrolled
-          ? "rgba(4, 10, 24, 0.92)"
-          : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled
-          ? "1px solid rgba(200, 164, 94, 0.15)"
-          : "1px solid transparent",
+        padding: scrolled ? "12px 0" : "18px 0",
+        background: scrolled || pathname !== "/"
+          ? "var(--header-bg)"
+          : "rgba(4, 10, 24, 0.4)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid var(--card-border)",
         transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
@@ -64,15 +69,15 @@ export default function Header() {
       >
         {/* Logo */}
         <Link
-          href="/dashboard"
+          href="/"
           style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 12 }}
         >
           <img
             src="/images/Logo-Only.webp"
             alt="Bantara Logo"
             style={{
-              width: 100,
-              height: 100,
+              width: 50,
+              height: 50,
               objectFit: "contain",
               borderRadius: 10,
             }}
@@ -82,8 +87,9 @@ export default function Header() {
               style={{
                 fontWeight: 800,
                 fontSize: 18,
-                color: "#ffffff",
+                color: "var(--text-primary)",
                 letterSpacing: "0.08em",
+                transition: "color 0.3s ease",
               }}
             >
               BANTARA
@@ -91,10 +97,11 @@ export default function Header() {
             <div
               style={{
                 fontSize: 10,
-                color: "#94a3b8",
+                color: "var(--text-secondary)",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 marginTop: -2,
+                transition: "color 0.3s ease",
               }}
             >
               Logistics
@@ -107,106 +114,212 @@ export default function Header() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 8,
+            gap: 6,
           }}
           className="desktop-nav"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              style={{
-                textDecoration: "none",
-                color: "#cbd5e1",
-                fontSize: 14,
-                fontWeight: 500,
-                padding: "8px 16px",
-                borderRadius: 8,
-                transition: "all 0.3s ease",
-                letterSpacing: "0.02em",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#c8a45e";
-                e.currentTarget.style.background = "rgba(200, 164, 94, 0.08)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#cbd5e1";
-                e.currentTarget.style.background = "transparent";
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                style={{
+                  textDecoration: "none",
+                  color: isActive ? "var(--gold-500)" : "var(--text-secondary)",
+                  background: isActive ? "rgba(200, 164, 94, 0.12)" : "transparent",
+                  fontSize: 14,
+                  fontWeight: isActive ? 600 : 500,
+                  padding: "8px 16px",
+                  borderRadius: 8,
+                  transition: "all 0.3s ease",
+                  letterSpacing: "0.02em",
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = "var(--gold-500)";
+                    e.currentTarget.style.background = "rgba(200, 164, 94, 0.08)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.color = "var(--text-secondary)";
+                    e.currentTarget.style.background = "transparent";
+                  }
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+
+          {/* Dark/Light Mode Toggle */}
+          <button
+            id="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
+            title={isLight ? "Mode Gelap" : "Mode Terang"}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 40,
+              height: 40,
+              borderRadius: 12,
+              border: "1.5px solid var(--card-border)",
+              background: "var(--surface)",
+              color: "var(--text-primary)",
+              cursor: "pointer",
+              transition: "all 0.3s cubic-bezier(0.4,0,0.2,1)",
+              marginLeft: 4,
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "var(--surface-hover)";
+              e.currentTarget.style.borderColor = "var(--gold-500)";
+              e.currentTarget.style.transform = "scale(1.08) rotate(12deg)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "var(--surface)";
+              e.currentTarget.style.borderColor = "var(--card-border)";
+              e.currentTarget.style.transform = "scale(1) rotate(0deg)";
+            }}
+          >
+            {isLight ? (
+              /* Moon icon for switching to dark */
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            ) : (
+              /* Sun icon for switching to light */
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            )}
+          </button>
+
           <a
             href="https://wa.me/6285891839116?text=Halo%20saya%20tertarik%20dengan%20layanan%20Anda"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary"
             style={{
               marginLeft: 8,
-              padding: "10px 24px",
+              padding: "10px 22px",
               fontSize: 13,
             }}
           >
-            Hubungi Tim Kami
+            Hubungi Kami
           </a>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          id="mobile-menu-toggle"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="mobile-menu-btn"
-          style={{
-            display: "none",
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: 8,
-            zIndex: 1001,
-          }}
-          aria-label="Toggle menu"
-        >
-          <div style={{ width: 24, height: 18, position: "relative" }}>
-            <span
-              style={{
-                display: "block",
-                width: 24,
-                height: 2,
-                background: "#c8a45e",
-                borderRadius: 2,
-                position: "absolute",
-                transition: "all 0.3s ease",
-                top: mobileMenuOpen ? 8 : 0,
-                transform: mobileMenuOpen ? "rotate(45deg)" : "none",
-              }}
-            />
-            <span
-              style={{
-                display: "block",
-                width: 18,
-                height: 2,
-                background: "#c8a45e",
-                borderRadius: 2,
-                position: "absolute",
-                top: 8,
-                opacity: mobileMenuOpen ? 0 : 1,
-                transition: "all 0.3s ease",
-              }}
-            />
-            <span
-              style={{
-                display: "block",
-                width: 24,
-                height: 2,
-                background: "#c8a45e",
-                borderRadius: 2,
-                position: "absolute",
-                transition: "all 0.3s ease",
-                top: mobileMenuOpen ? 8 : 16,
-                transform: mobileMenuOpen ? "rotate(-45deg)" : "none",
-              }}
-            />
-          </div>
-        </button>
+        {/* Mobile: Theme toggle + Hamburger */}
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }} className="mobile-controls">
+          {/* Mobile Theme Toggle */}
+          <button
+            id="theme-toggle-mobile"
+            onClick={toggleTheme}
+            aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
+            className="mobile-theme-btn"
+            style={{
+              display: "none",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 38,
+              height: 38,
+              borderRadius: 10,
+              border: "1.5px solid var(--card-border)",
+              background: "var(--surface)",
+              color: "var(--text-primary)",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+          >
+            {isLight ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </svg>
+            )}
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            id="mobile-menu-toggle"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-menu-btn"
+            style={{
+              display: "none",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 8,
+              zIndex: 1001,
+            }}
+            aria-label="Toggle menu"
+          >
+            <div style={{ width: 24, height: 18, position: "relative" }}>
+              <span
+                style={{
+                  display: "block",
+                  width: 24,
+                  height: 2,
+                  background: "var(--gold-500)",
+                  borderRadius: 2,
+                  position: "absolute",
+                  transition: "all 0.3s ease",
+                  top: mobileMenuOpen ? 8 : 0,
+                  transform: mobileMenuOpen ? "rotate(45deg)" : "none",
+                }}
+              />
+              <span
+                style={{
+                  display: "block",
+                  width: 18,
+                  height: 2,
+                  background: "var(--gold-500)",
+                  borderRadius: 2,
+                  position: "absolute",
+                  top: 8,
+                  opacity: mobileMenuOpen ? 0 : 1,
+                  transition: "all 0.3s ease",
+                }}
+              />
+              <span
+                style={{
+                  display: "block",
+                  width: 24,
+                  height: 2,
+                  background: "var(--gold-500)",
+                  borderRadius: 2,
+                  position: "absolute",
+                  transition: "all 0.3s ease",
+                  top: mobileMenuOpen ? 8 : 16,
+                  transform: mobileMenuOpen ? "rotate(-45deg)" : "none",
+                }}
+              />
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -217,8 +330,8 @@ export default function Header() {
           left: 0,
           right: 0,
           bottom: 0,
-          background: "rgba(4, 10, 24, 0.97)",
-          backdropFilter: "blur(20px)",
+          background: "var(--header-bg)",
+          backdropFilter: "blur(25px)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -237,37 +350,40 @@ export default function Header() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 24,
+            gap: 20,
             width: "100%",
             margin: "auto 0",
           }}
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              style={{
-                textDecoration: "none",
-                color: "#e2e8f0",
-                fontSize: 24,
-                fontWeight: 600,
-                letterSpacing: "0.05em",
-                transition: "color 0.3s ease",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#c8a45e")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#e2e8f0")}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{
+                  textDecoration: "none",
+                  color: isActive ? "var(--gold-500)" : "var(--text-primary)",
+                  fontSize: 22,
+                  fontWeight: 600,
+                  letterSpacing: "0.03em",
+                  transition: "color 0.3s ease",
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <a
             href="https://wa.me/6285891839116?text=Halo%20saya%20tertarik%20dengan%20layanan%20Anda"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary"
             onClick={() => setMobileMenuOpen(false)}
             style={{ marginTop: 16 }}
           >
-            Hubungi Tim Kami
+            Hubungi Kami
           </a>
         </div>
       </div>
@@ -279,6 +395,9 @@ export default function Header() {
           }
           .mobile-menu-btn {
             display: block !important;
+          }
+          .mobile-theme-btn {
+            display: flex !important;
           }
         }
       `}</style>

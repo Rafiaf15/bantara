@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "../context/ThemeContext";
 
 export const metadata: Metadata = {
   title: "BANTARA — PT Bima Arung Dwipantara | Shipping Operator & Logistic Solution",
@@ -23,6 +24,11 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
   },
+  icons: {
+    icon: "/images/Logo-Only.webp",
+    shortcut: "/images/Logo-Only.webp",
+    apple: "/images/Logo-Only.webp",
+  },
 };
 
 export default function RootLayout({
@@ -31,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -44,7 +50,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
