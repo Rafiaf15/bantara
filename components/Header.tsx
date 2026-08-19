@@ -12,7 +12,7 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -47,21 +47,21 @@ export default function Header() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        padding: scrolled ? "12px 0" : "18px 0",
+        padding: scrolled ? "10px 0" : "16px 0",
         background: scrolled || pathname !== "/"
           ? "var(--header-bg)"
           : "rgba(4, 10, 24, 0.4)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         borderBottom: "1px solid var(--card-border)",
-        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        transition: "all 0.3s ease",
       }}
     >
       <div
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 24px",
+          padding: "0 16px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -70,37 +70,37 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 12 }}
+          style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}
         >
           <img
             src="/images/Logo-Only.webp"
             alt="Bantara Logo"
             style={{
-              width: 50,
-              height: 50,
+              width: 42,
+              height: 42,
               objectFit: "contain",
-              borderRadius: 10,
+              borderRadius: 8,
             }}
           />
           <div>
             <div
               style={{
                 fontWeight: 800,
-                fontSize: 18,
+                fontSize: 16,
                 color: "var(--text-primary)",
-                letterSpacing: "0.08em",
+                letterSpacing: "0.06em",
                 transition: "color 0.3s ease",
+                lineHeight: 1.15,
               }}
             >
               BANTARA
             </div>
             <div
               style={{
-                fontSize: 10,
+                fontSize: 9.5,
                 color: "var(--text-secondary)",
-                letterSpacing: "0.15em",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                marginTop: -2,
                 transition: "color 0.3s ease",
               }}
             >
@@ -153,7 +153,7 @@ export default function Header() {
             );
           })}
 
-          {/* Dark/Light Mode Toggle */}
+          {/* Dark/Light Mode Toggle Desktop */}
           <button
             id="theme-toggle"
             onClick={toggleTheme}
@@ -163,9 +163,9 @@ export default function Header() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: 40,
-              height: 40,
-              borderRadius: 12,
+              width: 38,
+              height: 38,
+              borderRadius: 10,
               border: "1.5px solid var(--card-border)",
               background: "var(--surface)",
               color: "var(--text-primary)",
@@ -174,24 +174,12 @@ export default function Header() {
               marginLeft: 4,
               flexShrink: 0,
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "var(--surface-hover)";
-              e.currentTarget.style.borderColor = "var(--gold-500)";
-              e.currentTarget.style.transform = "scale(1.08) rotate(12deg)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "var(--surface)";
-              e.currentTarget.style.borderColor = "var(--card-border)";
-              e.currentTarget.style.transform = "scale(1) rotate(0deg)";
-            }}
           >
             {isLight ? (
-              /* Moon icon for switching to dark */
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
             ) : (
-              /* Sun icon for switching to light */
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="5" />
                 <line x1="12" y1="1" x2="12" y2="3" />
@@ -213,7 +201,7 @@ export default function Header() {
             className="btn-primary"
             style={{
               marginLeft: 8,
-              padding: "10px 22px",
+              padding: "9px 20px",
               fontSize: 13,
             }}
           >
@@ -240,15 +228,14 @@ export default function Header() {
               background: "var(--surface)",
               color: "var(--text-primary)",
               cursor: "pointer",
-              transition: "all 0.3s ease",
             }}
           >
             {isLight ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
             ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="5" />
                 <line x1="12" y1="1" x2="12" y2="3" />
                 <line x1="12" y1="21" x2="12" y2="23" />
@@ -272,8 +259,8 @@ export default function Header() {
               background: "none",
               border: "none",
               cursor: "pointer",
-              padding: 8,
-              zIndex: 1001,
+              padding: 6,
+              zIndex: 1002,
             }}
             aria-label="Toggle menu"
           >
@@ -332,17 +319,18 @@ export default function Header() {
           bottom: 0,
           background: "var(--header-bg)",
           backdropFilter: "blur(25px)",
+          WebkitBackdropFilter: "blur(25px)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "flex-start",
-          padding: "120px 24px 60px 24px",
-          gap: 24,
+          justifyContent: "center",
+          padding: "90px 20px 40px",
+          gap: 16,
           overflowY: "auto",
           opacity: mobileMenuOpen ? 1 : 0,
           pointerEvents: mobileMenuOpen ? "auto" : "none",
-          transition: "opacity 0.4s ease",
-          zIndex: 999,
+          transition: "all 0.35s ease",
+          zIndex: 1001,
         }}
       >
         <div
@@ -350,9 +338,9 @@ export default function Header() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 20,
+            gap: 14,
             width: "100%",
-            margin: "auto 0",
+            maxWidth: 300,
           }}
         >
           {navLinks.map((link) => {
@@ -365,10 +353,14 @@ export default function Header() {
                 style={{
                   textDecoration: "none",
                   color: isActive ? "var(--gold-500)" : "var(--text-primary)",
-                  fontSize: 22,
+                  fontSize: 18,
                   fontWeight: 600,
-                  letterSpacing: "0.03em",
-                  transition: "color 0.3s ease",
+                  padding: "10px 20px",
+                  borderRadius: 10,
+                  background: isActive ? "rgba(200, 164, 94, 0.12)" : "transparent",
+                  width: "100%",
+                  textAlign: "center",
+                  transition: "all 0.25s ease",
                 }}
               >
                 {link.label}
@@ -381,9 +373,9 @@ export default function Header() {
             rel="noopener noreferrer"
             className="btn-primary"
             onClick={() => setMobileMenuOpen(false)}
-            style={{ marginTop: 16 }}
+            style={{ width: "100%", justifyContent: "center", marginTop: 10, padding: "12px 20px" }}
           >
-            Hubungi Kami
+            Hubungi Tim Kami
           </a>
         </div>
       </div>

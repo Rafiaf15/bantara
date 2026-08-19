@@ -52,7 +52,7 @@ export default function Workflow() {
     <section
       ref={sectionRef}
       style={{
-        padding: "90px 24px",
+        padding: "70px 16px",
         background: "var(--section-bg)",
         position: "relative",
         transition: "background 0.4s ease",
@@ -69,7 +69,7 @@ export default function Workflow() {
         {/* Section Header */}
         <div
           className="animate-on-scroll"
-          style={{ textAlign: "center", marginBottom: 55 }}
+          style={{ textAlign: "center", marginBottom: 45 }}
         >
           <span
             style={{
@@ -78,7 +78,7 @@ export default function Workflow() {
               color: "var(--gold-500)",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              marginBottom: 10,
+              marginBottom: 8,
               display: "block",
             }}
           >
@@ -86,10 +86,10 @@ export default function Workflow() {
           </span>
           <h2
             style={{
-              fontSize: "clamp(2rem, 4.5vw, 2.8rem)",
+              fontSize: "clamp(1.85rem, 4.5vw, 2.8rem)",
               fontWeight: 800,
               color: "var(--text-primary)",
-              marginBottom: 14,
+              marginBottom: 12,
             }}
           >
             Proses Pengiriman Mudah &amp; Terstruktur
@@ -100,16 +100,16 @@ export default function Workflow() {
               height: 3,
               background: "linear-gradient(90deg, var(--gold-500), var(--gold-300))",
               borderRadius: 2,
-              margin: "0 auto 16px",
+              margin: "0 auto 14px",
             }}
           />
           <p
             style={{
-              fontSize: 15.5,
+              fontSize: 15,
               color: "var(--text-secondary)",
               maxWidth: 600,
               margin: "0 auto",
-              lineHeight: 1.7,
+              lineHeight: 1.65,
             }}
           >
             Empat langkah transparan mulai dari konsultasi awal hingga barang sampai dengan aman di lokasi tujuan.
@@ -120,8 +120,8 @@ export default function Workflow() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: 20,
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: 16,
           }}
         >
           {steps.map((s, idx) => (
@@ -129,42 +129,43 @@ export default function Workflow() {
               key={idx}
               className="glass-card animate-on-scroll"
               style={{
-                padding: "32px 24px",
+                padding: "24px 20px",
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
+                borderRadius: "14px",
               }}
             >
               <div>
                 <span
                   style={{
                     fontFamily: "monospace",
-                    fontSize: 26,
+                    fontSize: 24,
                     fontWeight: 800,
                     color: "var(--gold-500)",
                     display: "block",
-                    marginBottom: 14,
+                    marginBottom: 10,
                   }}
                 >
                   {s.num}
                 </span>
                 <h3
                   style={{
-                    fontSize: 17,
+                    fontSize: 16.5,
                     fontWeight: 700,
                     color: "var(--text-primary)",
-                    marginBottom: 10,
-                    lineHeight: 1.35,
+                    marginBottom: 8,
+                    lineHeight: 1.3,
                   }}
                 >
                   {s.title}
                 </h3>
                 <p
                   style={{
-                    fontSize: 13.5,
+                    fontSize: 13,
                     color: "var(--text-secondary)",
-                    lineHeight: 1.65,
+                    lineHeight: 1.6,
                   }}
                 >
                   {s.desc}
@@ -173,7 +174,7 @@ export default function Workflow() {
 
               <div
                 style={{
-                  marginTop: 20,
+                  marginTop: 18,
                   height: 2,
                   width: "30%",
                   background: "var(--gold-500)",

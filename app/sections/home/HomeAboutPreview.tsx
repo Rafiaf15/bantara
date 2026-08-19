@@ -29,7 +29,7 @@ export default function HomeAboutPreview() {
     <section
       ref={sectionRef}
       style={{
-        padding: "90px 24px",
+        padding: "70px 16px",
         background: "var(--section-bg)",
         position: "relative",
         transition: "background 0.4s ease",
@@ -47,7 +47,7 @@ export default function HomeAboutPreview() {
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: 60,
+            gap: 50,
             alignItems: "center",
           }}
           className="about-preview-grid"
@@ -55,11 +55,12 @@ export default function HomeAboutPreview() {
           {/* Left Column: Visual Image with Floating Badge */}
           <div className="animate-on-scroll" style={{ position: "relative" }}>
             <div
+              className="about-preview-img-box"
               style={{
                 position: "relative",
                 borderRadius: "16px",
                 overflow: "hidden",
-                height: 420,
+                height: 400,
                 border: "1px solid var(--card-border)",
                 boxShadow: "0 20px 40px rgba(0,0,0,0.25)",
               }}
@@ -81,15 +82,15 @@ export default function HomeAboutPreview() {
               <div
                 style={{
                   position: "absolute",
-                  bottom: 24,
-                  left: 24,
-                  right: 24,
+                  bottom: 20,
+                  left: 20,
+                  right: 20,
                 }}
               >
-                <div style={{ fontSize: 13, fontWeight: 700, color: "var(--gold-400)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "var(--gold-400)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   Multimodal Logistics
                 </div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: "#ffffff", marginTop: 4 }}>
+                <div style={{ fontSize: 16, fontWeight: 700, color: "#ffffff", marginTop: 4 }}>
                   Transportasi Darat, Laut &amp; Project Cargo
                 </div>
               </div>
@@ -97,22 +98,23 @@ export default function HomeAboutPreview() {
 
             {/* Floating Experience Badge */}
             <div
-              className="glass-card"
+              className="glass-card floating-exp-badge"
               style={{
                 position: "absolute",
-                top: -20,
-                right: -20,
-                padding: "16px 22px",
+                top: -15,
+                right: -10,
+                padding: "12px 18px",
                 display: "flex",
                 alignItems: "center",
-                gap: 12,
+                gap: 10,
                 boxShadow: "var(--shadow-card)",
+                borderRadius: "12px",
               }}
             >
-              <div style={{ fontSize: 28, fontWeight: 800, color: "var(--gold-500)", lineHeight: 1 }}>
+              <div style={{ fontSize: 24, fontWeight: 800, color: "var(--gold-500)", lineHeight: 1 }}>
                 5+
               </div>
-              <div style={{ fontSize: 12, fontWeight: 600, color: "var(--text-primary)", lineHeight: 1.3 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: "var(--text-primary)", lineHeight: 1.25 }}>
                 Tahun Melayani<br /><span style={{ color: "var(--text-secondary)", fontWeight: 400 }}>Seluruh Indonesia</span>
               </div>
             </div>
@@ -128,7 +130,7 @@ export default function HomeAboutPreview() {
                   color: "var(--gold-500)",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  marginBottom: 12,
+                  marginBottom: 10,
                   display: "block",
                 }}
               >
@@ -142,11 +144,11 @@ export default function HomeAboutPreview() {
             <p
               className="animate-on-scroll"
               style={{
-                fontSize: 15.5,
+                fontSize: 15,
                 color: "var(--text-secondary)",
-                lineHeight: 1.8,
-                marginTop: 20,
-                marginBottom: 28,
+                lineHeight: 1.75,
+                marginTop: 16,
+                marginBottom: 24,
               }}
             >
               <strong style={{ color: "var(--text-primary)" }}>PT Bima Arung Dwipantara (BANTARA)</strong> hadir memberikan kepastian pengiriman barang, kontainer, hingga material proyek berskala besar dengan armada sendiri dan jaringan mitra pelabuhan ke seluruh Indonesia.
@@ -154,34 +156,34 @@ export default function HomeAboutPreview() {
 
             {/* 2 Feature Cards */}
             <div
-              className="animate-on-scroll"
+              className="animate-on-scroll feature-two-grid"
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
-                gap: 16,
-                marginBottom: 32,
+                gap: 14,
+                marginBottom: 28,
               }}
             >
               <div
                 className="glass-card"
-                style={{ padding: "18px 20px" }}
+                style={{ padding: "16px 18px" }}
               >
-                <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text-primary)", marginBottom: 4 }}>
+                <div style={{ fontSize: 14.5, fontWeight: 700, color: "var(--text-primary)", marginBottom: 4 }}>
                   Ongkir Transparan
                 </div>
-                <div style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.5 }}>
+                <div style={{ fontSize: 12.5, color: "var(--text-secondary)", lineHeight: 1.45 }}>
                   Tarif disepakati di awal tanpa biaya siluman.
                 </div>
               </div>
 
               <div
                 className="glass-card"
-                style={{ padding: "18px 20px" }}
+                style={{ padding: "16px 18px" }}
               >
-                <div style={{ fontSize: 15, fontWeight: 700, color: "var(--text-primary)", marginBottom: 4 }}>
+                <div style={{ fontSize: 14.5, fontWeight: 700, color: "var(--text-primary)", marginBottom: 4 }}>
                   Door to Door
                 </div>
-                <div style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.5 }}>
+                <div style={{ fontSize: 12.5, color: "var(--text-secondary)", lineHeight: 1.45 }}>
                   Penjemputan langsung di gudang/pabrik Anda.
                 </div>
               </div>
@@ -209,7 +211,20 @@ export default function HomeAboutPreview() {
         @media (max-width: 900px) {
           .about-preview-grid {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 36px !important;
+          }
+          .about-preview-img-box {
+            height: 280px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .floating-exp-badge {
+            top: -10px !important;
+            right: 0 !important;
+            padding: 8px 14px !important;
+          }
+          .feature-two-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

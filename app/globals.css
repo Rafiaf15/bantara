@@ -324,10 +324,50 @@ h1, h2, h3, h4, h5, h6 {
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .section {
-    padding: 60px 20px;
+    padding: 60px 16px;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 6vw, 2.2rem) !important;
   }
 
   .section-subtitle {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+  }
+
+  .glass-card {
+    padding: 22px 18px !important;
+  }
+
+  .btn-primary, .btn-outline {
+    padding: 12px 22px;
+    font-size: 0.9rem;
   }
 }
+
+@media (max-width: 480px) {
+  .section {
+    padding: 48px 14px;
+  }
+
+  .section-title {
+    font-size: 1.65rem !important;
+  }
+
+  .glass-card {
+    padding: 18px 14px !important;
+  }
+
+  .btn-primary, .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Utility for mobile column layout */
+.flex-col-mobile {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+

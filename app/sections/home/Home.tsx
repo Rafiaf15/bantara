@@ -46,7 +46,7 @@ export default function Hero() {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(180deg, rgba(4,10,24,0.75) 0%, rgba(4,10,24,0.6) 40%, var(--background) 100%)",
+              "linear-gradient(180deg, rgba(4,10,24,0.78) 0%, rgba(4,10,24,0.62) 40%, var(--background) 100%)",
             zIndex: 1,
             transition: "background 0.4s ease",
           }}
@@ -58,7 +58,7 @@ export default function Hero() {
             bottom: 0,
             left: 0,
             right: 0,
-            height: 200,
+            height: 160,
             background:
               "linear-gradient(to top, var(--background), transparent)",
             zIndex: 2,
@@ -67,36 +67,6 @@ export default function Hero() {
         />
       </div>
 
-      {/* Floating accent elements */}
-      <div
-        style={{
-          position: "absolute",
-          top: "15%",
-          left: "5%",
-          width: 300,
-          height: 300,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(200,164,94,0.08) 0%, transparent 70%)",
-          animation: "float 8s ease-in-out infinite",
-          zIndex: 2,
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20%",
-          right: "10%",
-          width: 200,
-          height: 200,
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(14,165,233,0.06) 0%, transparent 70%)",
-          animation: "float 6s ease-in-out infinite reverse",
-          zIndex: 2,
-        }}
-      />
-
       {/* Content */}
       <div
         style={{
@@ -104,7 +74,8 @@ export default function Hero() {
           zIndex: 10,
           textAlign: "center",
           maxWidth: 900,
-          padding: "120px 24px 60px",
+          padding: "110px 16px 50px",
+          width: "100%",
         }}
       >
         {/* Badge */}
@@ -120,16 +91,16 @@ export default function Hero() {
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              padding: "8px 20px",
+              padding: "6px 16px",
               background: "rgba(200, 164, 94, 0.15)",
               border: "1px solid rgba(200, 164, 94, 0.35)",
               borderRadius: 50,
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: 600,
               color: "#e0c07c",
-              letterSpacing: "0.08em",
+              letterSpacing: "0.06em",
               textTransform: "uppercase",
-              marginBottom: 28,
+              marginBottom: 20,
               backdropFilter: "blur(8px)",
             }}
           >
@@ -149,12 +120,12 @@ export default function Hero() {
         {/* Main Title */}
         <h1
           style={{
-            fontSize: "clamp(2.5rem, 7vw, 4.5rem)",
+            fontSize: "clamp(2.1rem, 6.5vw, 4.2rem)",
             fontWeight: 800,
             color: "#ffffff",
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
-            marginBottom: 12,
+            lineHeight: 1.15,
+            letterSpacing: "-0.02em",
+            marginBottom: 14,
             opacity: loaded ? 1 : 0,
             transform: loaded ? "translateY(0)" : "translateY(30px)",
             transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s",
@@ -181,12 +152,12 @@ export default function Hero() {
         {/* Subtitle */}
         <p
           style={{
-            fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
+            fontSize: "clamp(0.95rem, 2.5vw, 1.2rem)",
             color: "#e2e8f0",
             fontWeight: 400,
-            maxWidth: 640,
-            margin: "0 auto 40px",
-            lineHeight: 1.7,
+            maxWidth: 620,
+            margin: "0 auto 32px",
+            lineHeight: 1.65,
             opacity: loaded ? 1 : 0,
             transform: loaded ? "translateY(0)" : "translateY(30px)",
             transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s",
@@ -202,13 +173,14 @@ export default function Hero() {
         <div
           style={{
             display: "flex",
-            gap: 16,
+            gap: 12,
             justifyContent: "center",
             flexWrap: "wrap",
             opacity: loaded ? 1 : 0,
             transform: loaded ? "translateY(0)" : "translateY(30px)",
             transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s",
           }}
+          className="hero-buttons"
         >
           <Link href="/services" className="btn-primary">
             Layanan Kami
@@ -232,22 +204,24 @@ export default function Hero() {
           style={{
             display: "flex",
             justifyContent: "center",
-            gap: "clamp(24px, 5vw, 60px)",
-            marginTop: 70,
+            gap: "clamp(18px, 4vw, 50px)",
+            marginTop: 50,
             opacity: loaded ? 1 : 0,
             transform: loaded ? "translateY(0)" : "translateY(30px)",
             transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1s",
+            flexWrap: "wrap",
           }}
+          className="hero-stats"
         >
           {[
-            { value: "5+", label: "Years Experience" },
-            { value: "100+", label: "Projects Done" },
-            { value: "50+", label: "Clients Served" },
+            { value: "5+", label: "Tahun Pengalaman" },
+            { value: "100+", label: "Proyek Selesai" },
+            { value: "50+", label: "Kota Tujuan" },
           ].map((stat) => (
-            <div key={stat.label} style={{ textAlign: "center" }}>
+            <div key={stat.label} style={{ textAlign: "center", minWidth: 85 }}>
               <div
                 style={{
-                  fontSize: "clamp(1.6rem, 4vw, 2.5rem)",
+                  fontSize: "clamp(1.4rem, 4vw, 2.2rem)",
                   fontWeight: 800,
                   color: "var(--gold-400)",
                   letterSpacing: "-0.02em",
@@ -258,12 +232,12 @@ export default function Hero() {
               </div>
               <div
                 style={{
-                  fontSize: "clamp(0.7rem, 1.5vw, 0.85rem)",
+                  fontSize: "clamp(0.68rem, 1.8vw, 0.8rem)",
                   color: "#cbd5e1",
                   fontWeight: 500,
-                  letterSpacing: "0.05em",
+                  letterSpacing: "0.04em",
                   textTransform: "uppercase",
-                  marginTop: 4,
+                  marginTop: 2,
                 }}
               >
                 {stat.label}
@@ -273,56 +247,14 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 30,
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 10,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 8,
-          opacity: loaded ? 0.7 : 0,
-          transition: "opacity 1s ease 1.2s",
-        }}
-      >
-        <span
-          style={{
-            fontSize: 11,
-            color: "#94a3b8",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-          }}
-        >
-          Scroll
-        </span>
-        <div
-          style={{
-            width: 20,
-            height: 32,
-            borderRadius: 10,
-            border: "1.5px solid rgba(255,255,255,0.3)",
-            position: "relative",
-          }}
-        >
-          <div
-            style={{
-              width: 3,
-              height: 8,
-              borderRadius: 2,
-              background: "var(--gold-400)",
-              position: "absolute",
-              left: "50%",
-              top: 6,
-              marginLeft: -1.5,
-              animation: "scroll-indicator 2s infinite",
-            }}
-          />
-        </div>
-      </div>
+      <style jsx>{`
+        @media (max-width: 480px) {
+          .hero-buttons {
+            flex-direction: column;
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 }

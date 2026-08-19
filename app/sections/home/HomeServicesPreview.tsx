@@ -50,7 +50,7 @@ export default function HomeServicesPreview() {
     <section
       ref={sectionRef}
       style={{
-        padding: "90px 24px",
+        padding: "70px 16px",
         background: "var(--section-alt-bg)",
         position: "relative",
         transition: "background 0.4s ease",
@@ -66,14 +66,14 @@ export default function HomeServicesPreview() {
       >
         {/* Section Header */}
         <div
-          className="animate-on-scroll"
+          className="animate-on-scroll services-header-box"
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
             flexWrap: "wrap",
-            gap: 20,
-            marginBottom: 50,
+            gap: 16,
+            marginBottom: 40,
           }}
         >
           <div>
@@ -84,7 +84,7 @@ export default function HomeServicesPreview() {
                 color: "var(--gold-500)",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
-                marginBottom: 10,
+                marginBottom: 8,
                 display: "block",
               }}
             >
@@ -92,7 +92,7 @@ export default function HomeServicesPreview() {
             </span>
             <h2
               style={{
-                fontSize: "clamp(2rem, 4.5vw, 2.8rem)",
+                fontSize: "clamp(1.85rem, 4.5vw, 2.8rem)",
                 fontWeight: 800,
                 color: "var(--text-primary)",
                 lineHeight: 1.2,
@@ -102,8 +102,8 @@ export default function HomeServicesPreview() {
             </h2>
           </div>
 
-          <Link href="/services" className="btn-outline" style={{ padding: "10px 24px", fontSize: 13.5 }}>
-            Lihat Semua Layanan (6)
+          <Link href="/services" className="btn-outline" style={{ padding: "9px 20px", fontSize: 13 }}>
+            Lihat Semua Layanan (7)
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -114,8 +114,8 @@ export default function HomeServicesPreview() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: 24,
+            gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+            gap: 20,
           }}
         >
           {serviceHighlights.map((svc, i) => (
@@ -125,7 +125,7 @@ export default function HomeServicesPreview() {
               className="glass-card animate-on-scroll service-preview-card"
               style={{
                 textDecoration: "none",
-                borderRadius: "16px",
+                borderRadius: "14px",
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
@@ -134,7 +134,7 @@ export default function HomeServicesPreview() {
               <div
                 style={{
                   position: "relative",
-                  height: 210,
+                  height: 190,
                   width: "100%",
                   overflow: "hidden",
                 }}
@@ -156,14 +156,14 @@ export default function HomeServicesPreview() {
                 <span
                   style={{
                     position: "absolute",
-                    top: 14,
-                    right: 14,
-                    background: "rgba(4, 10, 24, 0.75)",
+                    top: 12,
+                    right: 12,
+                    background: "rgba(4, 10, 24, 0.8)",
                     border: "1px solid var(--gold-500)",
                     color: "var(--gold-400)",
-                    fontSize: 11,
+                    fontSize: 10.5,
                     fontWeight: 700,
-                    padding: "4px 10px",
+                    padding: "3px 9px",
                     borderRadius: 20,
                     backdropFilter: "blur(6px)",
                   }}
@@ -172,24 +172,24 @@ export default function HomeServicesPreview() {
                 </span>
               </div>
 
-              <div style={{ padding: "24px 24px 28px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+              <div style={{ padding: "20px 18px 22px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                 <div>
                   <h3
                     style={{
-                      fontSize: 18,
+                      fontSize: 17,
                       fontWeight: 700,
                       color: "var(--text-primary)",
-                      marginBottom: 8,
+                      marginBottom: 6,
                     }}
                   >
                     {svc.title}
                   </h3>
                   <p
                     style={{
-                      fontSize: 13.5,
+                      fontSize: 13,
                       color: "var(--text-secondary)",
-                      lineHeight: 1.6,
-                      marginBottom: 16,
+                      lineHeight: 1.55,
+                      marginBottom: 14,
                     }}
                   >
                     {svc.desc}
@@ -201,7 +201,7 @@ export default function HomeServicesPreview() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: 6,
-                    fontSize: 13,
+                    fontSize: 12.5,
                     fontWeight: 600,
                     color: "var(--gold-500)",
                   }}
@@ -217,6 +217,16 @@ export default function HomeServicesPreview() {
       <style jsx>{`
         .service-preview-card:hover .card-thumb-img {
           transform: scale(1.06);
+        }
+        @media (max-width: 480px) {
+          .services-header-box {
+            flex-direction: column;
+            align-items: flex-start !important;
+          }
+          .services-header-box a {
+            width: 100%;
+            justify-content: center;
+          }
         }
       `}</style>
     </section>
