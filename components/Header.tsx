@@ -33,6 +33,7 @@ export default function Header() {
     { label: "Tentang Kami", href: "/tentang-kami" },
     { label: "Services", href: "/services" },
     { label: "Experience", href: "/experience" },
+    { label: "Tracking", href: "/tracking" },
     { label: "Contact", href: "/contact" },
   ];
 
