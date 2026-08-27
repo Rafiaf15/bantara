@@ -8,19 +8,19 @@ const serviceHighlights = [
   {
     title: "Project Logistics",
     desc: "Penanganan logistik terencana untuk proyek infrastruktur, alat berat, dan relokasi industri.",
-    image: "/images/Spun-bg.webp",
+    image: "/images/Mobil-bg.webp",
     badge: "Specialized",
   },
   {
     title: "Pengangkutan Laut",
     desc: "Layanan kapal kargo, kontainer FCL/LCL, dan tongkang untuk distribusi antarpulau nusantara.",
-    image: "/images/Container-bg.webp",
+    image: "/images/Tiang-bg.webp",
     badge: "Antar Pulau",
   },
   {
     title: "Pengangkutan Darat",
     desc: "Armada truk tronton, trailer, dan CDD untuk pengiriman point-to-point dan door-to-door.",
-    image: "/images/Besi-bg.webp",
+    image: "/images/Container-bg.webp",
     badge: "Armada Sendiri",
   },
 ];

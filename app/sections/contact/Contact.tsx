@@ -65,7 +65,7 @@ export default function Contact() {
         </svg>
       ),
       title: "Telepon & WhatsApp",
-      value: "+62 812-8812-2307",
+      value: "Admin Bantara",
       sub: "Respon cepat di jam kerja (Senin – Sabtu)",
       action: "https://wa.me/6281288122307",
       actionText: "Chat WhatsApp",
@@ -104,9 +104,9 @@ export default function Contact() {
         </svg>
       ),
       title: "Kantor Pusat & Operasional",
-      value: "Jakarta Garden City / Bekasi — Taruma Jaya",
-      sub: "DKI Jakarta & Jawa Barat, Indonesia",
-      action: "https://maps.google.com/?q=Jakarta+Garden+City",
+      value: "Bekasi Harapan Indah",
+      sub: "Jl. Ruko Taman Cemara Blk. U6 No.11",
+      action: "https://maps.app.goo.gl/H8wLNfrPzHV8o4xY8",
       actionText: "Buka Google Maps",
     },
   ];

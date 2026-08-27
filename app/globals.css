@@ -371,3 +371,47 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-start !important;
 }
 
+/* ─── Vessel Tracking Map ─── */
+.bantara-vessel-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.bantara-map-dark .leaflet-tile-pane {
+  filter: brightness(0.7) invert(1) contrast(1.2) hue-rotate(180deg) saturate(0.3);
+}
+
+.bantara-cluster-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.bantara-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(56, 189, 248, 0.85);
+  color: #040a18;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.bantara-cluster:hover {
+  background: rgba(200, 164, 94, 0.9);
+}
+
+.leaflet-tooltip {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.leaflet-tooltip-top::before {
+  border-top-color: var(--card-border) !important;
+}
+

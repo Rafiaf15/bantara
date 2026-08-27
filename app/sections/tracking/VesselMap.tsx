@@ -19,12 +19,9 @@ interface VesselMapProps {
 
 const FLY_ZOOM = 12;
 
-const DARK_TILES =
-  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
-const LIGHT_TILES =
-  "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
+const OSM_TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 const TILE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
 function createVesselIcon(vessel: VesselPosition, selected: boolean): L.DivIcon {
   const rotation = vessel.heading ?? vessel.course ?? 0;
@@ -120,7 +117,7 @@ export default function VesselMap({
   onClearSelection,
 }: VesselMapProps) {
   const { theme } = useTheme();
-  const tileUrl = theme === "light" ? LIGHT_TILES : DARK_TILES;
+  const mapClass = theme === "dark" ? "bantara-map-dark" : "";
   const markerRefs = useRef<Map<string, L.Marker>>(new Map());
 
   const markers = useMemo(
@@ -146,10 +143,11 @@ export default function VesselMap({
       zoom={2}
       minZoom={2}
       scrollWheelZoom
+      className={mapClass}
       style={{ height: "100%", width: "100%", background: "var(--section-alt-bg)" }}
     >
       <ClickHandler onClick={onClearSelection} />
-      <TileLayer key={tileUrl} attribution={TILE_ATTRIBUTION} url={tileUrl} />
+      <TileLayer attribution={TILE_ATTRIBUTION} url={OSM_TILES} />
       <MapController vessels={vessels} flyTarget={flyTarget} />
       <MarkerClusterGroup
         chunkedLoading

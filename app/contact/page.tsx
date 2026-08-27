@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Contact Us — BANTARA | PT Bima Arung Dwipantara",
   description:
     "Hubungi PT Bima Arung Dwipantara (BANTARA) untuk konsultasi pengiriman, penawaran harga, dan solusi logistik terpercaya.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

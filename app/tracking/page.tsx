@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Lacak posisi kapal secara near-real-time berbasis data AIS: nama kapal, MMSI, IMO, kecepatan, course, heading, tujuan, dan ETA.",
   robots: { index: true, follow: true },
+  alternates: { canonical: "/tracking" },
 };
 
 export default function TrackingPage() {

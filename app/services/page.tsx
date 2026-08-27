@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Services — BANTARA | Logistik Terintegrasi",
   description:
     "Layanan logistik komprehensif BANTARA: Project Logistics, Pengangkutan Laut, Pengangkutan Darat, Pergudangan, Constructions, dan Transformers.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
