@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -23,7 +22,7 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Background Image */}
+      {/* Background Video */}
       <div
         style={{
           position: "absolute",
@@ -31,22 +30,30 @@ export default function Hero() {
           zIndex: 0,
         }}
       >
-        <Image
-          src="/images/hero-bg.webp"
-          alt="Cargo ship in the ocean - BANTARA logistics"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center 40%" }}
-          quality={80}
-          sizes="100vw"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/images/hero-bg.webp"
+          style={{
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center 40%",
+          }}
+        >
+          <source src="/videos/Hero.webm" type="video/webm" />
+          <source src="/videos/Hero.mp4" type="video/mp4" />
+        </video>
         {/* Dark gradient overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(180deg, rgba(4,10,24,0.78) 0%, rgba(4,10,24,0.62) 40%, var(--background) 100%)",
+              "rgba(4,10,24,0.45)",
             zIndex: 1,
             transition: "background 0.4s ease",
           }}
@@ -58,7 +65,7 @@ export default function Hero() {
             bottom: 0,
             left: 0,
             right: 0,
-            height: 160,
+            height: 120,
             background:
               "linear-gradient(to top, var(--background), transparent)",
             zIndex: 2,
@@ -136,8 +143,8 @@ export default function Hero() {
           <br />
           <span
             style={{
-              background:
-                "linear-gradient(135deg, #c8a45e, #f3d79b, #c8a45e)",
+              backgroundImage:
+                "linear-gradient(135deg, #3666b5, #4a78c9, #3666b5)",
               backgroundSize: "200% 200%",
               animation: "gradient-shift 4s ease infinite",
               WebkitBackgroundClip: "text",

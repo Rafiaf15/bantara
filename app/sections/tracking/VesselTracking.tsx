@@ -47,6 +47,7 @@ export default function VesselTracking() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<DataFilter>("all");
   const [selectedMmsi, setSelectedMmsi] = useState<string | null>(null);
+  const [focusTarget, setFocusTarget] = useState<{ latitude: number; longitude: number } | null>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -190,10 +191,11 @@ export default function VesselTracking() {
     searchInputRef.current?.blur();
   };
 
-  const flyTarget =
-    selectedVessel !== null
-      ? { latitude: selectedVessel.latitude, longitude: selectedVessel.longitude }
-      : null;
+  const handleFocusVessel = () => {
+    if (selectedVessel) {
+      setFocusTarget({ latitude: selectedVessel.latitude, longitude: selectedVessel.longitude });
+    }
+  };
 
   const handleRetry = () => {
     setError(null);
@@ -360,7 +362,7 @@ export default function VesselTracking() {
                       width: "100%",
                       textAlign: "left",
                       padding: "11px 16px",
-                      background: v.mmsi === selectedMmsi ? "rgba(200, 164, 94, 0.1)" : "transparent",
+                      background: v.mmsi === selectedMmsi ? "rgba(54, 102, 181, 0.1)" : "transparent",
                       border: "none",
                       borderBottom: "1px solid var(--card-border)",
                       cursor: "pointer",
@@ -368,11 +370,11 @@ export default function VesselTracking() {
                       fontFamily: "inherit",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "rgba(200, 164, 94, 0.08)";
+                      e.currentTarget.style.background = "rgba(54, 102, 181, 0.08)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.background =
-                        v.mmsi === selectedMmsi ? "rgba(200, 164, 94, 0.1)" : "transparent";
+                        v.mmsi === selectedMmsi ? "rgba(54, 102, 181, 0.1)" : "transparent";
                     }}
                   >
                     <span
@@ -411,7 +413,7 @@ export default function VesselTracking() {
                 cursor: "pointer",
                 transition: "all 0.25s ease",
                 background:
-                  filter === opt.key ? "rgba(200, 164, 94, 0.15)" : "transparent",
+                  filter === opt.key ? "rgba(54, 102, 181, 0.15)" : "transparent",
                 color:
                   filter === opt.key ? "var(--gold-500)" : "var(--text-secondary)",
                 border: `1.5px solid ${filter === opt.key ? "var(--gold-500)" : "var(--card-border)"}`,
@@ -573,7 +575,7 @@ export default function VesselTracking() {
           <VesselMap
             vessels={markers}
             selectedMmsi={selectedMmsi}
-            flyTarget={flyTarget}
+            flyTarget={focusTarget}
             onSelect={(mmsi) => setSelectedMmsi(mmsi)}
             onClearSelection={() => setSelectedMmsi(null)}
           />
@@ -632,13 +634,14 @@ export default function VesselTracking() {
             Memperbarui…
           </div>
         )}
-
-        <VesselDetailPanel
-          vessel={selectedVessel}
-          staleMinutes={staleMinutes}
-          onClose={() => setSelectedMmsi(null)}
-        />
       </div>
+
+      <VesselDetailPanel
+        vessel={selectedVessel}
+        staleMinutes={staleMinutes}
+        onClose={() => setSelectedMmsi(null)}
+        onFocus={handleFocusVessel}
+      />
 
       <style jsx>{`
         @keyframes spin {
@@ -660,13 +663,13 @@ export default function VesselTracking() {
           color: var(--gold-300);
           font-weight: 700;
           font-size: 12px;
-          box-shadow: 0 0 18px rgba(200, 164, 94, 0.35);
+          box-shadow: 0 0 18px rgba(54, 102, 181, 0.35);
         }
         :global([data-theme="light"] .bantara-cluster) {
           background: rgba(255, 255, 255, 0.9);
         }
         input:focus {
-          border-color: rgba(200, 164, 94, 0.55) !important;
+          border-color: rgba(54, 102, 181, 0.55) !important;
         }
         @media (max-width: 768px) {
           .tracking-map-wrap {

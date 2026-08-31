@@ -27,16 +27,16 @@ export default function HomePage() {
         <HomeServicesPreview />
         <div className="section-divider" />
 
-        {/* 4. Alur Kerja Pengiriman (4-Step Workflow) */}
-        <Workflow />
+        {/* 4. Portofolio & Track Record Proyek */}
+        <HomeExperiencePreview />
         <div className="section-divider" />
 
         {/* 5. Jaringan & Koridor Rute Nusantara */}
         <NetworkRoutes />
         <div className="section-divider" />
 
-        {/* 6. Portofolio & Track Record Proyek */}
-        <HomeExperiencePreview />
+        {/* 6. Partner Kami (Partner Logos) */}
+        <Workflow />
         <div className="section-divider" />
 
         {/* 7. Quick Action CTA Banner (WhatsApp & Form Kontak) */}

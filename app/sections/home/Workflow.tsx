@@ -2,27 +2,14 @@
 
 import { useEffect, useRef } from "react";
 
-const steps = [
-  {
-    num: "01",
-    title: "Tanya Rute & Ongkir",
-    desc: "Kirim detail muatan, berat, dimensi, dan kota tujuan via WhatsApp atau formulir. Tim sales kami menghitung tarif terbaik.",
-  },
-  {
-    num: "02",
-    title: "Penjadwalan & Pemuatan",
-    desc: "Armada truk/kontainer datang sesuai jadwal. Barang ditimbang, dicek kondisinya, dan diamankan sesuai standar SOP muatan.",
-  },
-  {
-    num: "03",
-    title: "Pengawalan Perjalanan",
-    desc: "Muatan diberangkatkan lewat jalur darat, laut, atau multimoda. Anda menerima pembaruan status perjalanan secara proaktif.",
-  },
-  {
-    num: "04",
-    title: "Tiba di Tujuan & Serah Terima",
-    desc: "Barang diantar langsung ke alamat penerima, disertai penandatanganan dokumen serah terima dan bukti penerimaan resmi.",
-  },
+const partners = [
+  { id: 1, src: "/images/Waskita.webp", alt: "WASKITA" },
+  { id: 2, src: "/images/BPI.webp", alt: "Bakrie Pipe Industri" },
+  { id: 3, src: "/images/MIP.webp", alt: "Mandiri Inti Perkasa" },
+  { id: 4, src: "/images/TEMAS.webp", alt: "Partner 4" },
+  { id: 5, src: "/images/PJP.webp", alt: "Partner 5" },
+  { id: 6, src: "/images/ABP.webp", alt: "Partner 6" },
+  { id: 7, src: "/images/MERATUS.webp", alt: "Partner 7" },
 ];
 
 export default function Workflow() {
@@ -53,7 +40,7 @@ export default function Workflow() {
       ref={sectionRef}
       style={{
         padding: "70px 16px",
-        background: "var(--section-bg)",
+        background: "var(--section-alt-bg)",
         position: "relative",
         transition: "background 0.4s ease",
       }}
@@ -82,7 +69,7 @@ export default function Workflow() {
               display: "block",
             }}
           >
-            Alur Kerja
+            Partner Kami
           </span>
           <h2
             style={{
@@ -92,7 +79,7 @@ export default function Workflow() {
               marginBottom: 12,
             }}
           >
-            Proses Pengiriman Mudah &amp; Terstruktur
+            Dipercaya oleh Berbagai Perusahaan
           </h2>
           <div
             style={{
@@ -100,86 +87,40 @@ export default function Workflow() {
               height: 3,
               background: "linear-gradient(90deg, var(--gold-500), var(--gold-300))",
               borderRadius: 2,
-              margin: "0 auto 14px",
+              margin: "0 auto",
             }}
           />
-          <p
-            style={{
-              fontSize: 15,
-              color: "var(--text-secondary)",
-              maxWidth: 600,
-              margin: "0 auto",
-              lineHeight: 1.65,
-            }}
-          >
-            Empat langkah transparan mulai dari konsultasi awal hingga barang sampai dengan aman di lokasi tujuan.
-          </p>
         </div>
 
-        {/* 4 Step Cards */}
+        {/* Partner Logos */}
         <div
+          className="partner-grid animate-on-scroll"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: 16,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 40,
           }}
         >
-          {steps.map((s, idx) => (
+          {partners.map((p) => (
             <div
-              key={idx}
-              className="glass-card animate-on-scroll"
+              key={p.id}
               style={{
-                padding: "24px 20px",
-                position: "relative",
+                width: 120,
+                height: 120,
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                borderRadius: "14px",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              <div>
-                <span
-                  style={{
-                    fontFamily: "monospace",
-                    fontSize: 24,
-                    fontWeight: 800,
-                    color: "var(--gold-500)",
-                    display: "block",
-                    marginBottom: 10,
-                  }}
-                >
-                  {s.num}
-                </span>
-                <h3
-                  style={{
-                    fontSize: 16.5,
-                    fontWeight: 700,
-                    color: "var(--text-primary)",
-                    marginBottom: 8,
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {s.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 13,
-                    color: "var(--text-secondary)",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {s.desc}
-                </p>
-              </div>
-
-              <div
+              <img
+                src={p.src}
+                alt={p.alt}
                 style={{
-                  marginTop: 18,
-                  height: 2,
-                  width: "30%",
-                  background: "var(--gold-500)",
-                  opacity: 0.4,
-                  borderRadius: 2,
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
                 }}
               />
             </div>

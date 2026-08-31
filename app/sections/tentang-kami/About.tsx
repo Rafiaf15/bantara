@@ -29,89 +29,38 @@ export default function About() {
   const coreValues = [
     {
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        </svg>
+        <div style={{ fontSize: 24, fontWeight: 'bold', color: 'var(--gold-500)' }}>A</div>
       ),
-      title: "Integritas & Transparansi",
-      desc: "Keterbukaan tarif, estimasi waktu yang akurat, dan komitmen profesional yang disepakati sebelum muatan diberangkatkan.",
+      title: "Amanah",
+      desc: "Menjalankan setiap tanggung jawab dengan jujur dan penuh integritas.",
     },
     {
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-          <polyline points="22 4 12 14.01 9 11.01" />
-        </svg>
+        <div style={{ fontSize: 24, fontWeight: 'bold', color: 'var(--gold-500)' }}>R</div>
       ),
-      title: "Keandalan & Keamanan",
-      desc: "Pemeriksaan teliti saat pemuatan barang, penanganan khusus untuk muatan berat, dan serah terima dokumen resmi saat tiba di tujuan.",
+      title: "Responsif",
+      desc: "Cepat tanggap terhadap kebutuhan pelanggan dan dinamika operasional.",
     },
     {
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        </svg>
+        <div style={{ fontSize: 24, fontWeight: 'bold', color: 'var(--gold-500)' }}>U</div>
       ),
-      title: "Komunikasi Responsif",
-      desc: "Tim operasional yang siap mengawal, memberikan pembaharuan status kiriman, dan cepat tanggap melalui WhatsApp serta telepon.",
+      title: "Unggul",
+      desc: "Terus meningkatkan kualitas layanan dan kompetensi.",
     },
     {
       icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-        </svg>
+        <div style={{ fontSize: 24, fontWeight: 'bold', color: 'var(--gold-500)' }}>N</div>
       ),
-      title: "Kemitraan Berkelanjutan",
-      desc: "Mendukung kelancaran rantai pasok mitra bisnis & korporat dengan fleksibilitas jadwal penjemputan dan skema tarif khusus.",
-    },
-  ];
-
-  const milestones = [
-    {
-      year: "Awal Berdiri",
-      title: "Pendirian & Komitmen Layanan",
-      desc: "PT Bima Arung Dwipantara didirikan dengan fokus menghadirkan solusi pengiriman darat dan penanganan muatan proyek yang handal.",
+      title: "Nyata",
+      desc: "Memberikan solusi yang dapat diandalkan dan hasil yang dapat dipertanggungjawabkan.",
     },
     {
-      year: "Ekspansi",
-      title: "Layanan Multimoda & Jalur Laut",
-      desc: "Memperluas jangkauan antarpulau melalui kerja sama kapal kargo, kontainer (FCL/LCL), dan tongkang untuk distribusi nasional.",
-    },
-    {
-      year: "Spesialisasi",
-      title: "Penanganan Project Cargo Strategis",
-      desc: "Dipercaya menangani pengiriman material berat infrastruktur nasional seperti tiang listrik PLN, spun pile jembatan, dan transformer.",
-    },
-    {
-      year: "Kini & Masa Depan",
-      title: "Jangkauan Seluruh Indonesia",
-      desc: "Melayani lebih dari puluhan kota tujuan dari Sabang sampai Merauke dengan sistem logistik end-to-end terintegrasi.",
-    },
-  ];
-
-  const advantages = [
-    {
-      num: "01",
-      title: "Ongkir Jelas & Transparan",
-      desc: "Harga disepakati di awal tanpa biaya siluman. Tersedia fleksibilitas nego tarif bagi pengiriman rutin.",
-    },
-    {
-      num: "02",
-      title: "Door to Door Service",
-      desc: "Penjemputan langsung di lokasi gudang atau pabrik Anda, dikawal hingga sampai ke alamat penerima di seluruh nusantara.",
-    },
-    {
-      num: "03",
-      title: "Armada Lengkap & Terawat",
-      desc: "Didukung armada truk, trailer, kapal kargo, serta perlengkapan handling heavy lift yang siap beroperasi.",
-    },
-    {
-      num: "04",
-      title: "Kawal Pengiriman Proaktif",
-      desc: "Update status perjalanan secara proaktif dari tim operasional tanpa Anda perlu repot mengejar informasi.",
+      icon: (
+        <div style={{ fontSize: 24, fontWeight: 'bold', color: 'var(--gold-500)' }}>G</div>
+      ),
+      title: "Gigih",
+      desc: "Memiliki semangat untuk terus berusaha, berkembang, dan memberikan hasil terbaik.",
     },
   ];
 
@@ -242,6 +191,7 @@ export default function About() {
                 color: "var(--text-secondary)",
                 lineHeight: 1.8,
                 marginBottom: 16,
+                textAlign: "justify",
               }}
             >
               BANTARA adalah perusahaan penyedia layanan logistik, <em>shipping operator</em>, dan <em>logistic solution</em> yang berfokus pada transportasi darat, laut, project cargo, pergudangan, dan distribusi ke seluruh Indonesia.
@@ -252,9 +202,21 @@ export default function About() {
                 color: "var(--text-secondary)",
                 lineHeight: 1.8,
                 marginBottom: 24,
+                textAlign: "justify",
               }}
             >
               Dengan kombinasi armada mandiri untuk rute darat serta jaringan mitra pelabuhan dan armada kapal laut, kami memberikan kepastian estimasi waktu, keamanan penanganan muatan, dan transparansi tarif sejak awal.
+            </p>
+                        <p
+              style={{
+                fontSize: 15,
+                color: "var(--text-secondary)",
+                lineHeight: 1.8,
+                marginBottom: 32,
+                textAlign: "justify",
+              }}
+            >
+              Perusahaan didukung oleh Tim Operasional Kantor dan Tim Operasional Lapangan yang bekerja secara profesional di bawah kepemimpinan Direktur Utama. Dengan mengedepankan kolaborasi, integritas, dan tanggung jawab, setiap anggota tim berperan dalam memastikan seluruh proses operasional berjalan secara efektif dan efisien. Komitmen tersebut menjadi landasan kami dalam menghadirkan layanan logistik yang terpercaya serta membangun hubungan jangka panjang dengan pelanggan dan mitra bisnis.
             </p>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -303,7 +265,7 @@ export default function About() {
                   borderLeft: "3px solid var(--gold-500)",
                 }}
               >
-                Menjadi mitra logistik dan <em>shipping operator</em> terdepan di Indonesia yang dipercaya karena keandalan operasional, ketepatan waktu, dan komitmen pelayanan bernilai tambah.
+                Menjadi perusahaan logistik terpercaya yang unggul dalam solusi transportasi dan penanganan barang proyek melalui profesionalisme, inovasi, dan pelayanan prima.
               </p>
 
               <h3
@@ -327,10 +289,11 @@ export default function About() {
                 }}
               >
                 {[
-                  "Menyediakan layanan pengiriman multimoda (darat & laut) yang terintegrasi dan aman.",
-                  "Mengutamakan transparansi harga dan komunikasi status pengiriman secara proaktif.",
-                  "Menjaga standar kualitas armada dan keselamatan kerja dalam penanganan muatan proyek.",
-                  "Membangun hubungan kemitraan jangka panjang yang saling menguntungkan dengan pelanggan.",
+                  "Memberikan layanan logistik yang aman, tepat waktu, dan berkualitas.",
+                  "Menyediakan solusi transportasi dan penanganan barang proyek yang efisien, andal, dan sesuai kebutuhan pelanggan.",
+                  "Membangun dan menjaga hubungan jangka panjang dengan pelanggan melalui kepercayaan, komunikasi yang baik, dan pelayanan prima.",
+                  "Membangun kemitraan yang dilandasi profesionalisme, integritas, dan kepuasan pelanggan.",
+                  "Mengembangkan sumber daya manusia yang kompeten, berintegritas, dan berorientasi pada pelayanan.",
                 ].map((item, i) => (
                   <li
                     key={i}
@@ -352,7 +315,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Section: Core Values */}
+        {/* Section: Core Values (ARUNG) */}
         <div style={{ marginBottom: 70 }}>
           <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: 40 }}>
             <span
@@ -366,17 +329,17 @@ export default function About() {
                 marginBottom: 8,
               }}
             >
-              Prinsip Kerja
+              Core Values
             </span>
             <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.4rem)", fontWeight: 700, color: "var(--text-primary)" }}>
-              Nilai-Nilai Utama BANTARA
+              ARUNG
             </h2>
           </div>
 
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
               gap: 20,
             }}
           >
@@ -386,19 +349,20 @@ export default function About() {
                 className="glass-card animate-on-scroll"
                 style={{
                   padding: 28,
+                  textAlign: "center"
                 }}
               >
                 <div
                   style={{
                     width: 48,
                     height: 48,
-                    borderRadius: 12,
+                    borderRadius: "50%",
                     background: "rgba(200, 164, 94, 0.1)",
                     border: "1px solid rgba(200, 164, 94, 0.25)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    marginBottom: 16,
+                    margin: "0 auto 16px",
                   }}
                 >
                   {val.icon}
@@ -421,138 +385,183 @@ export default function About() {
           </div>
         </div>
 
-        {/* Section: Milestones / Perjalanan */}
-        <div style={{ marginBottom: 70 }}>
-          <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: 40 }}>
+        {/* Section: CSR & Partners */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 40,
+            marginBottom: 70,
+          }}
+        >
+          {/* CSR */}
+          <div className="glass-card animate-on-scroll" style={{ padding: "36px 32px" }}>
             <span
               style={{
                 fontSize: 12,
-                fontWeight: 600,
+                fontWeight: 700,
                 color: "var(--gold-500)",
-                letterSpacing: "0.15em",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 display: "block",
                 marginBottom: 8,
               }}
             >
-              Jejak Langkah
+              Kegiatan di Luar Usaha
             </span>
-            <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.4rem)", fontWeight: 700, color: "var(--text-primary)" }}>
-              Perjalanan Kami
-            </h2>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 20,
-            }}
-          >
-            {milestones.map((m, i) => (
-              <div
-                key={i}
-                className="glass-card animate-on-scroll"
-                style={{
-                  padding: 26,
-                  position: "relative",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 700,
-                    color: "var(--gold-500)",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    display: "block",
-                    marginBottom: 6,
-                  }}
-                >
-                  {m.year}
-                </span>
-                <h3
-                  style={{
-                    fontSize: 16,
-                    fontWeight: 700,
-                    color: "var(--text-primary)",
-                    marginBottom: 10,
-                    lineHeight: 1.35,
-                  }}
-                >
-                  {m.title}
-                </h3>
-                <p style={{ fontSize: 13.5, color: "var(--text-secondary)", lineHeight: 1.65 }}>
-                  {m.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Section: Keunggulan / Why Choose Us */}
-        <div style={{ marginBottom: 60 }}>
-          <div className="animate-on-scroll" style={{ textAlign: "center", marginBottom: 40 }}>
-            <span
+            <h3
               style={{
-                fontSize: 12,
-                fontWeight: 600,
-                color: "var(--gold-500)",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                display: "block",
-                marginBottom: 8,
+                fontSize: 20,
+                fontWeight: 700,
+                color: "var(--text-primary)",
+                marginBottom: 16,
               }}
             >
-              Keunggulan Layanan
-            </span>
-            <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 2.4rem)", fontWeight: 700, color: "var(--text-primary)" }}>
-              Mengapa Memilih BANTARA?
-            </h2>
+              Kepedulian Sosial Perusahaan
+            </h3>
+            <p
+              style={{
+                fontSize: 14.5,
+                color: "var(--text-secondary)",
+                lineHeight: 1.7,
+                marginBottom: 16,
+              }}
+            >
+              Bagi PT Bima Arung Dwipantara, keberhasilan perusahaan tidak hanya diukur dari pertumbuhan bisnis, tetapi juga dari manfaat yang dapat diberikan kepada masyarakat. Sebagai bentuk kepedulian sosial, perusahaan secara rutin melaksanakan berbagai kegiatan, antara lain:
+            </p>
+            <ul
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: "0 0 16px 0",
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+              }}
+            >
+              {[
+                "Program Jumat Berkah melalui pembagian makanan kepada masyarakat.",
+                "Kunjungan dan pemberian bantuan ke panti asuhan.",
+                "Dukungan terhadap kegiatan masyarakat di lingkungan sekitar perusahaan.",
+              ].map((item, i) => (
+                <li
+                  key={i}
+                  style={{
+                    fontSize: 13.5,
+                    color: "var(--text-secondary)",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 8,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  <span style={{ color: "var(--gold-500)", fontWeight: 700 }}>•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p
+              style={{
+                fontSize: 14.5,
+                color: "var(--text-secondary)",
+                lineHeight: 1.7,
+              }}
+            >
+              Melalui kegiatan tersebut, kami berharap dapat memberikan kontribusi positif serta menumbuhkan semangat berbagi dan kepedulian terhadap sesama.
+            </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: 20,
-            }}
-          >
-            {advantages.map((adv, idx) => (
-              <div
-                key={idx}
-                className="glass-card animate-on-scroll"
+          {/* Partners & Customers / Target Pengembangan */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+            <div className="glass-card animate-on-scroll" style={{ padding: "36px 32px" }}>
+              <span
                 style={{
-                  padding: 26,
+                  fontSize: 12,
+                  fontWeight: 700,
+                  color: "var(--gold-500)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: 8,
                 }}
               >
-                <span
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 800,
-                    color: "var(--gold-500)",
-                    fontFamily: "monospace",
-                    display: "block",
-                    marginBottom: 8,
-                  }}
-                >
-                  {adv.num}
-                </span>
-                <h3
-                  style={{
-                    fontSize: 16.5,
-                    fontWeight: 700,
-                    color: "var(--text-primary)",
-                    marginBottom: 8,
-                  }}
-                >
-                  {adv.title}
-                </h3>
-                <p style={{ fontSize: 13.5, color: "var(--text-secondary)", lineHeight: 1.65 }}>
-                  {adv.desc}
-                </p>
-              </div>
-            ))}
+                Kolaborasi
+              </span>
+              <h3
+                style={{
+                  fontSize: 20,
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  marginBottom: 16,
+                }}
+              >
+                Partners &amp; Customers
+              </h3>
+              <p
+                style={{
+                  fontSize: 14.5,
+                  color: "var(--text-secondary)",
+                  lineHeight: 1.7,
+                  marginBottom: 16,
+                }}
+              >
+                Bagi kami, setiap pelanggan dan mitra bukan sekadar bagian dari kegiatan operasional, tetapi juga bagian dari perjalanan perusahaan. Kepercayaan yang diberikan menjadi motivasi untuk terus meningkatkan kualitas layanan dan menghadirkan solusi logistik yang dapat diandalkan.
+              </p>
+              <p
+                style={{
+                  fontSize: 14.5,
+                  color: "var(--text-secondary)",
+                  lineHeight: 1.7,
+                }}
+              >
+                Melalui kerja sama yang baik, kami berharap dapat membangun hubungan yang berkelanjutan dan memberikan nilai tambah bagi setiap pihak yang tumbuh bersama PT Bima Arung Dwipantara.
+              </p>
+            </div>
+
+            <div className="glass-card animate-on-scroll" style={{ padding: "36px 32px" }}>
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 700,
+                  color: "var(--gold-500)",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: 8,
+                }}
+              >
+                Visi Kedepan
+              </span>
+              <h3
+                style={{
+                  fontSize: 20,
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  marginBottom: 16,
+                }}
+              >
+                Target Pengembangan
+              </h3>
+              <p
+                style={{
+                  fontSize: 14.5,
+                  color: "var(--text-secondary)",
+                  lineHeight: 1.7,
+                  marginBottom: 16,
+                }}
+              >
+                PT Bima Arung Dwipantara berkomitmen untuk terus bertumbuh secara berkelanjutan dengan mengutamakan kualitas layanan, profesionalisme, dan kepercayaan pelanggan. Ke depan, kami berfokus pada penguatan jaringan operasional, perluasan kemitraan strategis, serta peningkatan kualitas sumber daya dan sistem kerja agar mampu memberikan solusi logistik yang semakin efektif dan bernilai bagi pelanggan.
+              </p>
+              <p
+                style={{
+                  fontSize: 14.5,
+                  color: "var(--text-secondary)",
+                  lineHeight: 1.7,
+                }}
+              >
+                Kami percaya bahwa pertumbuhan yang baik tidak hanya diukur dari skala bisnis, tetapi juga dari kemampuan untuk memberikan pelayanan yang konsisten, membangun hubungan jangka panjang, dan menciptakan manfaat bagi seluruh pemangku kepentingan.
+              </p>
+            </div>
           </div>
         </div>
 

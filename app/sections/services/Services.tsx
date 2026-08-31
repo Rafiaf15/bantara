@@ -5,32 +5,14 @@ import Link from "next/link";
 
 const serviceList = [
   {
-    id: "project-logistics",
-    title: "Project Logistics & Heavy Lift",
-    badge: "Specialized Cargo",
-    desc: "Penanganan logistik skala besar untuk mesin pabrik, transformer, generator, alat berat, dan material proyek dengan penanganan khusus oversize & overweight.",
-    features: [
-      "Survey rute dan kelayakan jalan sebelum pengiriman",
-      "Penanganan muatan berdimensi khusus (oversize/overweight)",
-      "Didukung peralatan rigging, lashing, dan crane profesional",
-      "Pengawalan teknis dari titik muat sampai lokasi proyek",
-    ],
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
-  },
-  {
-    id: "pengangkutan-laut",
-    title: "Pengangkutan Laut (Kapal & Kontainer)",
+    id: "transportasi-laut",
+    title: "Transportasi Laut",
     badge: "Antar Pulau",
-    desc: "Layanan transportasi kargo laut antar pulau menggunakan kapal kontainer (FCL 20ft/40ft & LCL), kapal kargo curah, serta rute terjadwal ke seluruh pelabuhan nusantara.",
+    desc: "Pengiriman barang antarpulau dengan jaringan pelayaran terpercaya.",
     features: [
-      "Pilihan kontainer 20ft, 40ft (FCL Penuh & LCL Gabungan)",
-      "Stuffing & stripping di pelabuhan mitra utama",
-      "Pengurusan dokumen pelabuhan, manifest, & surat jalan",
-      "Rute terjadwal mingguan dari pelabuhan utama",
+      "Jaringan pelayaran terpercaya",
+      "Pengiriman antar pulau di seluruh Indonesia",
+      "Solusi kargo laut yang efisien"
     ],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -42,15 +24,14 @@ const serviceList = [
     ),
   },
   {
-    id: "pengangkutan-darat",
-    title: "Pengangkutan Darat & Trucking",
-    badge: "Armada Sendiri",
-    desc: "Armada truk lengkap untuk distribusi darat lintas kota dan pulau (Colt Diesel, Fuso, Tronton, Trailer, hingga Lowbed) dengan driver berpengalaman rute jarak jauh.",
+    id: "transportasi-darat",
+    title: "Transportasi Darat",
+    badge: "Antar Kota & Provinsi",
+    desc: "Distribusi barang yang aman dan tepat waktu ke berbagai wilayah.",
     features: [
-      "Colt Diesel Double (CDD), Fuso Bak/Box, Tronton, & Trailer",
-      "Kapasitas angkut fleksibel mulai 2 ton hingga 40+ ton",
-      "Perawatan armada berkala dan inspeksi sebelum berangkat",
-      "Pengiriman point-to-point cepat dan terjadwal",
+      "Distribusi barang aman dan terkendali",
+      "Pengiriman tepat waktu",
+      "Jangkauan luas ke berbagai wilayah"
     ],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -62,33 +43,82 @@ const serviceList = [
     ),
   },
   {
-    id: "door-to-door",
-    title: "Layanan Door to Door Terintegrasi",
-    badge: "End-to-End",
-    desc: "Kemudahan pengiriman di mana truk menjemput langsung di lokasi gudang/pabrik Anda dan mengantarkan barang sampai ke alamat penerima di pulau tujuan.",
+    id: "pengiriman-kendaraan",
+    title: "Pengiriman Kendaraan",
+    badge: "Semua Jenis Kendaraan",
+    desc: "Layanan pengiriman kendaraan roda empat, kendaraan niaga, hingga kendaraan proyek.",
     features: [
-      "Penjemputan langsung di lokasi pabrik atau gudang Anda",
-      "Antar langsung ke alamat akhir, bukan cuma sampai pelabuhan",
-      "Dokumentasi tanda terima resmi dan bukti serah terima",
-      "Cocok untuk distributor, manufaktur, dan kiriman rutin",
+      "Pengiriman kendaraan roda empat",
+      "Pengiriman kendaraan niaga",
+      "Pengiriman kendaraan proyek (alat berat/khusus)"
     ],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-        <circle cx="12" cy="10" r="3" />
+        <path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a2 2 0 0 0-1.6-.8H4a2 2 0 0 0-2 2v7.7a2 2 0 0 0 2 2h1.5" />
+        <circle cx="7.5" cy="16.5" r="2.5" />
+        <circle cx="16.5" cy="16.5" r="2.5" />
       </svg>
     ),
   },
   {
-    id: "material-konstruksi",
-    title: "Logistik Material Konstruksi",
-    badge: "Infrastruktur",
-    desc: "Dukungan logistik spesialis untuk pengiriman tiang listrik beton/baja PLN, spun pile jembatan, besi beton, girder, dan struktur material bangunan.",
+    id: "pengiriman-barang-proyek",
+    title: "Pengiriman Barang Proyek",
+    badge: "Project Cargo",
+    desc: "Penanganan kebutuhan logistik proyek dengan perencanaan dan koordinasi yang optimal.",
     features: [
-      "Spesialisasi tiang pancang (spun pile) & tiang listrik PLN",
-      "Penanganan besi beton, plat baja, & material fabrikasi",
-      "Pemuatan dengan standar keselamatan kerja (K3)",
-      "Distribusi ke lokasi pembangunan strategis di daerah pelosok",
+      "Perencanaan logistik proyek yang matang",
+      "Koordinasi optimal di lapangan",
+      "Penanganan khusus untuk kebutuhan proyek"
+    ],
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+  },
+  {
+    id: "general-cargo",
+    title: "General Cargo",
+    badge: "Kargo Umum",
+    desc: "Pengiriman berbagai jenis barang sesuai kebutuhan pelanggan.",
+    features: [
+      "Pengiriman berbagai jenis komoditas",
+      "Fleksibel sesuai kebutuhan pelanggan",
+      "Penanganan yang aman dan efisien"
+    ],
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <path d="M3.27 6.96L12 12.01l8.73-5.05" />
+        <path d="M12 22.08V12" />
+      </svg>
+    ),
+  },
+  {
+    id: "lashing-cargo-handling",
+    title: "Lashing & Cargo Handling",
+    badge: "Standar Operasional",
+    desc: "Penanganan dan pengamanan muatan sesuai standar operasional.",
+    features: [
+      "Pengamanan muatan dengan standar tinggi",
+      "Proses lashing profesional",
+      "Cargo handling terpercaya dan aman"
+    ],
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+  },
+  {
+    id: "jasa-trucking",
+    title: "Jasa Trucking",
+    badge: "Armada Andal",
+    desc: "Melayani distribusi barang melalui transportasi darat dengan armada yang andal dan pengiriman yang tepat waktu.",
+    features: [
+      "Armada angkutan truk yang andal",
+      "Pengiriman yang tepat waktu",
+      "Distribusi darat komprehensif"
     ],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -101,45 +131,7 @@ const serviceList = [
         <path d="M14 14v7" />
       </svg>
     ),
-  },
-  {
-    id: "tongkang",
-    title: "Tongkang & Jalur Perairan (Barge)",
-    badge: "Curah & Heavy Volume",
-    desc: "Angkutan muatan curah, material konstruksi skala besar, atau kargo berat lewat jalur pesisir dan sungai menuju dermaga proyek yang sulit dijangkau kapal besar.",
-    features: [
-      "Muatan volume besar, material tambang, dan proyek pesisir",
-      "Akses ke pelabuhan sungai dan jetty proyek khusus",
-      "Koordinasi bongkar muat di titik sandar",
-      "Dapat dikombinasikan dengan trucking multimoda",
-    ],
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 20h20" />
-        <path d="M5 20V8l7-5 7 5v12" />
-        <path d="M9 20v-6h6v6" />
-      </svg>
-    ),
-  },
-  {
-    id: "pergudangan",
-    title: "Layanan Pergudangan & Distribusi",
-    badge: "Warehousing",
-    desc: "Fasilitas pergudangan modern dan manajemen penyimpanan sementara untuk konsolidasi muatan sebelum diberangkatkan ke tujuan akhir.",
-    features: [
-      "Penyimpanan barang aman dengan sistem kontrol rapi",
-      "Konsolidasi muatan dari berbagai supplier sebelum dikirim",
-      "Fasilitas bongkar muat forklift & tenaga terampil",
-      "Lokasi strategis dekat koridor transportasi utama",
-    ],
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold-500)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35z" />
-        <path d="M6 18h12" />
-        <path d="M6 14h12" />
-      </svg>
-    ),
-  },
+  }
 ];
 
 const industries = [

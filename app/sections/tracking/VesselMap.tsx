@@ -25,9 +25,9 @@ const TILE_ATTRIBUTION =
 
 function createVesselIcon(vessel: VesselPosition, selected: boolean): L.DivIcon {
   const rotation = vessel.heading ?? vessel.course ?? 0;
-  const color = selected ? "#c8a45e" : "#38bdf8";
+  const color = selected ? "#3666b5" : "#38bdf8";
   const ring = selected
-    ? '<circle cx="14" cy="14" r="12.5" fill="none" stroke="#c8a45e" stroke-width="1.5" opacity="0.85"/>'
+    ? '<circle cx="14" cy="14" r="12.5" fill="none" stroke="#3666b5" stroke-width="1.5" opacity="0.85"/>'
     : "";
   const html = `
     <div style="width:28px;height:28px;transform:rotate(${rotation}deg);transition:transform 0.4s ease;">
@@ -35,7 +35,7 @@ function createVesselIcon(vessel: VesselPosition, selected: boolean): L.DivIcon 
       <svg width="28" height="28" viewBox="0 0 28 28" style="position:absolute;top:0;left:0;">
         <path d="M14 4 L20.5 23 L14 19 L7.5 23 Z"
           fill="${color}"
-          stroke="${selected ? "#e0c07c" : "rgba(4,10,24,0.75)"}"
+          stroke="${selected ? "#4a78c9" : "rgba(4,10,24,0.75)"}"
           stroke-width="1.3"
           stroke-linejoin="round"/>
       </svg>

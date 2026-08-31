@@ -5,6 +5,7 @@ import type { VesselPosition } from "@/lib/vessel-types";
 interface VesselDetailPanelProps {
   vessel: VesselPosition | null;
   onClose: () => void;
+  onFocus: () => void;
   staleMinutes?: number | null;
 }
 
@@ -35,7 +36,7 @@ function formatLastUpdate(iso: string | undefined): string {
   }).format(date);
 }
 
-export default function VesselDetailPanel({ vessel, onClose, staleMinutes }: VesselDetailPanelProps) {
+export default function VesselDetailPanel({ vessel, onClose, onFocus, staleMinutes }: VesselDetailPanelProps) {
   if (!vessel) return null;
 
   const rows: { label: string; value: string }[] = [
@@ -54,7 +55,15 @@ export default function VesselDetailPanel({ vessel, onClose, staleMinutes }: Ves
   ];
 
   return (
-    <div className="vessel-panel glass-card">
+    <div
+      style={{
+        background: "var(--card-bg)",
+        border: "1px solid var(--card-border)",
+        borderRadius: "var(--radius-md)",
+        padding: 20,
+        marginTop: 16,
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -88,42 +97,56 @@ export default function VesselDetailPanel({ vessel, onClose, staleMinutes }: Ves
             {vessel.name ?? `Kapal ${vessel.mmsi}`}
           </h3>
         </div>
-        <button
-          onClick={onClose}
-          aria-label="Tutup panel"
-          style={{
-            width: 30,
-            height: 30,
-            flexShrink: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: 8,
-            border: "1px solid var(--card-border)",
-            background: "var(--surface)",
-            color: "var(--text-secondary)",
-            cursor: "pointer",
-            transition: "all 0.25s ease",
-          }}
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
+        <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+          <button
+            onClick={onFocus}
+            aria-label="Fokus ke kapal di peta"
+            style={{
+              padding: "6px 14px",
+              fontSize: 12.5,
+              fontWeight: 600,
+              fontFamily: "inherit",
+              borderRadius: 8,
+              border: "1.5px solid var(--gold-500)",
+              background: "transparent",
+              color: "var(--gold-500)",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+            }}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            Fokus
+          </button>
+          <button
+            onClick={onClose}
+            aria-label="Tutup panel"
+            style={{
+              width: 30,
+              height: 30,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 8,
+              border: "1px solid var(--card-border)",
+              background: "var(--surface)",
+              color: "var(--text-secondary)",
+              cursor: "pointer",
+              transition: "all 0.25s ease",
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
       </div>
-
-      <div
-        style={{
-          display: "none",
-          width: 40,
-          height: 4,
-          borderRadius: 2,
-          background: "var(--card-border)",
-          margin: "-6px auto 12px",
-        }}
-        className="vessel-panel-handle"
-      />
 
       {staleMinutes !== null && staleMinutes !== undefined && (
         <div
@@ -182,39 +205,6 @@ export default function VesselDetailPanel({ vessel, onClose, staleMinutes }: Ves
           </div>
         ))}
       </div>
-
-      <style jsx>{`
-        .vessel-panel {
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          bottom: 16px;
-          width: 360px;
-          max-width: calc(100% - 32px);
-          overflow-y: auto;
-          padding: 20px;
-          z-index: 900;
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-        }
-        @media (max-width: 768px) {
-          .vessel-panel {
-            top: auto;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            max-width: 100%;
-            max-height: 55%;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-            padding: 18px 16px;
-            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.45);
-          }
-          .vessel-panel-handle {
-            display: block !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }

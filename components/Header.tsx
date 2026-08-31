@@ -51,7 +51,7 @@ export default function Header() {
         padding: scrolled ? "10px 0" : "16px 0",
         background: scrolled || pathname !== "/"
           ? "var(--header-bg)"
-          : "rgba(4, 10, 24, 0.4)",
+          : "rgba(255, 255, 255, 0.4)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         borderBottom: "1px solid var(--card-border)",
@@ -128,7 +128,7 @@ export default function Header() {
                 style={{
                   textDecoration: "none",
                   color: isActive ? "var(--gold-500)" : "var(--text-secondary)",
-                  background: isActive ? "rgba(200, 164, 94, 0.12)" : "transparent",
+                  background: isActive ? "rgba(54, 102, 181, 0.12)" : "transparent",
                   fontSize: 14,
                   fontWeight: isActive ? 600 : 500,
                   padding: "8px 16px",
@@ -139,7 +139,7 @@ export default function Header() {
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     e.currentTarget.style.color = "var(--gold-500)";
-                    e.currentTarget.style.background = "rgba(200, 164, 94, 0.08)";
+                    e.currentTarget.style.background = "rgba(54, 102, 181, 0.08)";
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -358,7 +358,7 @@ export default function Header() {
                   fontWeight: 600,
                   padding: "10px 20px",
                   borderRadius: 10,
-                  background: isActive ? "rgba(200, 164, 94, 0.12)" : "transparent",
+                  background: isActive ? "rgba(54, 102, 181, 0.12)" : "transparent",
                   width: "100%",
                   textAlign: "center",
                   transition: "all 0.25s ease",

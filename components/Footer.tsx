@@ -22,7 +22,7 @@ export default function Footer() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1fr",
+            gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 1fr",
             gap: 40,
             marginBottom: 48,
           }}
@@ -72,8 +72,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
+          {/* Menu */}
+          <div style={{ gridColumn: "span 2" }}>
             <h4
               style={{
                 fontSize: 13,
@@ -84,21 +84,22 @@ export default function Footer() {
                 marginBottom: 20,
               }}
             >
-              Navigation
+              Menu
             </h4>
             <div
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 10,
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                columnGap: 20,
+                rowGap: 10,
               }}
             >
               {[
                 { label: "Home", href: "/" },
-                { label: "Tentang Kami", href: "/tentang-kami" },
-                { label: "Services", href: "/services" },
                 { label: "Experience", href: "/experience" },
+                { label: "Tentang Kami", href: "/tentang-kami" },
                 { label: "Tracking", href: "/tracking" },
+                { label: "Services", href: "/services" },
                 { label: "Contact", href: "/contact" },
               ].map((item) => (
                 <Link
@@ -106,15 +107,15 @@ export default function Footer() {
                   href={item.href}
                   style={{
                     fontSize: 14,
-                    color: "var(--text-secondary)",
+                    color: "var(--gold-500)",
                     textDecoration: "none",
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--gold-500)")
+                    (e.currentTarget.style.color = "var(--gold-400)")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--text-secondary)")
+                    (e.currentTarget.style.color = "var(--gold-500)")
                   }
                 >
                   {item.label}
@@ -155,20 +156,71 @@ export default function Footer() {
                   href="/services"
                   style={{
                     fontSize: 14,
-                    color: "var(--text-muted)",
+                    color: "var(--gold-500)",
                     textDecoration: "none",
                     transition: "color 0.3s ease",
                   }}
                   onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--gold-500)")
+                    (e.currentTarget.style.color = "var(--gold-400)")
                   }
                   onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--text-muted)")
+                    (e.currentTarget.style.color = "var(--gold-500)")
                   }
                 >
                   {item}
                 </Link>
               ))}
+            </div>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h4
+              style={{
+                fontSize: 13,
+                fontWeight: 700,
+                color: "var(--text-primary)",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                marginBottom: 20,
+              }}
+            >
+              Social Media
+            </h4>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+              }}
+            >
+              <a
+                href="https://www.instagram.com/bantara_ad"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: 14,
+                  color: "var(--gold-500)",
+                  textDecoration: "none",
+                  transition: "color 0.3s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--gold-400)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "var(--gold-500)")
+                }
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                Instagram
+              </a>
             </div>
           </div>
 
@@ -197,16 +249,16 @@ export default function Footer() {
                 href="mailto:bimaarungdwipantara@gmail.com"
                 style={{
                   fontSize: 14,
-                  color: "var(--text-secondary)",
+                  color: "var(--gold-500)",
                   textDecoration: "none",
                   transition: "color 0.3s ease",
                   wordBreak: "break-all",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--gold-500)")
+                  (e.currentTarget.style.color = "var(--gold-400)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--text-secondary)")
+                  (e.currentTarget.style.color = "var(--gold-500)")
                 }
               >
                 bimaarungdwipantara@gmail.com
@@ -217,22 +269,38 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 style={{
                   fontSize: 14,
-                  color: "var(--text-secondary)",
+                  color: "var(--gold-500)",
                   textDecoration: "none",
                   transition: "color 0.3s ease",
                 }}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--gold-500)")
+                  (e.currentTarget.style.color = "var(--gold-400)")
                 }
                 onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--text-secondary)")
+                  (e.currentTarget.style.color = "var(--gold-500)")
                 }
               >
                 +62 812-8812-2307
               </a>
-              <span style={{ fontSize: 14, color: "var(--text-muted)" }}>
-                Jakarta Garden City
-              </span>
+              <a
+                href="https://maps.app.goo.gl/H8wLNfrPzHV8o4xY8"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: 14,
+                  color: "var(--gold-500)",
+                  textDecoration: "none",
+                  transition: "color 0.3s ease",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--gold-400)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "var(--gold-500)")
+                }
+              >
+                Bekasi, Harapan Indah
+              </a>
             </div>
           </div>
         </div>
