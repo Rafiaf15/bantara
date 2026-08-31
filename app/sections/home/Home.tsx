@@ -44,8 +44,8 @@ export default function Hero() {
             objectPosition: "center 40%",
           }}
         >
-          <source src="/videos/Hero.webm" type="video/webm" />
-          <source src="/videos/Hero.mp4" type="video/mp4" />
+          <source src="/Videos/Hero.webm" type="video/webm" />
+          <source src="/Videos/Hero.mp4" type="video/mp4" />
         </video>
         {/* Dark gradient overlay */}
         <div
